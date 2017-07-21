@@ -4,7 +4,7 @@ import { TouchableOpacity, Text } from 'react-native'
 import styles from './Styles/GoogleButtonStyles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default class FacebookButton extends Component {
+export default class GoogleButton extends Component {
   static propTypes = {
     text: PropTypes.string,
     onPress: PropTypes.func,

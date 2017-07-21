@@ -23,7 +23,8 @@ const colors = {
   banner: '#5F3E63',
   text: '#E0D7E5',
   googleRed: '#E41819',
-  white: '#FFF'
+  white: '#FFF',
+  twitterBlue: '#1B95E0'
 }
 
 export default colors

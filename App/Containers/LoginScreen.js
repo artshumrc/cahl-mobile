@@ -14,6 +14,7 @@ import styles from './Styles/LoginScreenStyles'
 import {Images, Metrics} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import FacebookButton from '../Components/FacebookButton'
+import GoogleButton from '../Components/GoogleButton'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -151,6 +152,10 @@ class LoginScreen extends React.Component {
         <FacebookButton
           text="Sign in with Facebook"
           onPress={() => console.log("fb button pressed")}
+        />
+        <GoogleButton
+          text="Sign in with Google"
+          onPress={() => console.log("google button pressed")}
         />
       </ScrollView>
     )

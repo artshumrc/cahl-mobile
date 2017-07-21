@@ -48,5 +48,13 @@ export default StyleSheet.create({
   topLogo: {
     alignSelf: 'center',
     resizeMode: 'contain'
+  },
+  googleButton: {
+    backgroundColor: Colors.googleRed,
+    borderColor: Colors.white
+  },
+  fbButton: {
+    backgroundColor: Colors.facebook,
+    borderColor: Colors.white
   }
 })

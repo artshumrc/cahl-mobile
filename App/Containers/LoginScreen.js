@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import styles from './Styles/LoginScreenStyles'
 import {Images, Metrics} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
-import FullButton from '../Components/FullButton'
+import FacebookButton from '../Components/FacebookButton'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -148,12 +148,8 @@ class LoginScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        <FullButton
-          text="Google"
-          onPress={() => console.log("google button pressed")}
-        />
-        <FullButton
-          text="Facebook"
+        <FacebookButton
+          text="Sign in with Facebook"
           onPress={() => console.log("fb button pressed")}
         />
       </ScrollView>

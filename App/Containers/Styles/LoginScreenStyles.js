@@ -4,10 +4,10 @@ import { Colors, Metrics } from '../../Themes'
 export default StyleSheet.create({
   container: {
     paddingTop: 70,
-    backgroundColor: Colors.background
+    backgroundColor: Colors.white
   },
   form: {
-    backgroundColor: Colors.snow,
+    backgroundColor: Colors.cloud,
     margin: Metrics.baseMargin,
     borderRadius: 4
   },
@@ -44,17 +44,5 @@ export default StyleSheet.create({
   loginText: {
     textAlign: 'center',
     color: Colors.silver
-  },
-  topLogo: {
-    alignSelf: 'center',
-    resizeMode: 'contain'
-  },
-  googleButton: {
-    backgroundColor: Colors.googleRed,
-    borderColor: Colors.white
-  },
-  fbButton: {
-    backgroundColor: Colors.facebook,
-    borderColor: Colors.white
   }
 })

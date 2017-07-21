@@ -100,7 +100,6 @@ class LoginScreen extends React.Component {
     const textInputStyle = editable ? styles.textInput : styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
-        <Text>CAHL Mobile Login</Text>
         <View style={styles.form}>
           <View style={styles.row}>
             <Text style={styles.rowLabel}>Username</Text>

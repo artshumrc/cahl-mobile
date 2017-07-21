@@ -7,10 +7,10 @@ import styles from './Styles/NavigationStyles'
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
   LaunchScreen: { screen: LaunchScreen },
-  LoginScreen: { screen: LoginScreen }
+  LoginScreen: { screen: LoginScreen, navigationOptions: {title: 'Login'} }
 }, {
   // Default config for all screens
-  headerMode: 'none',
+  headerMode: 'screen',
   initialRouteName: 'LoginScreen',
   navigationOptions: {
     headerStyle: styles.header

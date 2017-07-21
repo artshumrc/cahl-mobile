@@ -5,10 +5,6 @@ import { Fonts, Colors } from '../../Themes/'
 export default StyleSheet.create({
   button: {
     marginVertical: 5,
-    // borderTopColor: Colors.fire,
-    // borderBottomColor: Colors.bloodOrange,
-    // borderTopWidth: 1,
-    // borderBottomWidth: 1,
     backgroundColor: Colors.facebook,
     flexDirection: 'row',
     alignItems: 'center',

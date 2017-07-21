@@ -32,6 +32,7 @@
     "querystringify": "0.0.4",
     "ramda": "^0.24.1",
     "react": "16.0.0-alpha.12",
+    "react-apollo": "^1.4.8",
     "react-native": "0.45.1",
     "react-native-animatable": "^1.2.2",
     "react-native-config": "^0.2.1",
@@ -45,7 +46,9 @@
     "redux-persist": "^4.1.0",
     "redux-saga": "^0.14.3",
     "reduxsauce": "0.4.1",
-    "seamless-immutable": "^7.0.1"
+    "seamless-immutable": "^7.0.1",
+    "subscriptions-transport-ws": "^0.8.1",
+    "tcomb-form-native": "^0.6.9"
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",

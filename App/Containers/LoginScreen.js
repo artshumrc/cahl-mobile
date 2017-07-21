@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
 import styles from './Styles/LoginScreenStyles'
 import {Images, Metrics} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
+import FullButton from '../Components/FullButton'
 
 class LoginScreen extends React.Component {
   static propTypes = {
@@ -28,10 +29,9 @@ class LoginScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: 'reactnative@infinite.red',
+      username: 'username',
       password: 'password',
       visibleHeight: Metrics.screenHeight,
-      topLogo: { width: Metrics.screenWidth }
     }
     this.isAttempting = false
   }
@@ -77,9 +77,10 @@ class LoginScreen extends React.Component {
 
   handlePressLogin = () => {
     const { username, password } = this.state
-    this.isAttempting = true
+    // this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
-    this.props.attemptLogin(username, password)
+    // this.props.attemptLogin(username, password)
+    console.log('Signing in with username ', username, ' and password ', password)
   }
 
   handleChangeUsername = (text) => {
@@ -97,7 +98,7 @@ class LoginScreen extends React.Component {
     const textInputStyle = editable ? styles.textInput : styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps='always'>
-        <Image source={Images.logo} style={[styles.topLogo, this.state.topLogo]} />
+        <Text>CAHL Mobile Login</Text>
         <View style={styles.form}>
           <View style={styles.row}>
             <Text style={styles.rowLabel}>Username</Text>
@@ -147,7 +148,14 @@ class LoginScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-
+        <FullButton
+          text="Google"
+          onPress={() => console.log("google button pressed")}
+        />
+        <FullButton
+          text="Facebook"
+          onPress={() => console.log("fb button pressed")}
+        />
       </ScrollView>
     )
   }

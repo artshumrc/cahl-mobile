@@ -79,10 +79,9 @@ class LoginScreen extends React.Component {
 
   handlePressLogin = () => {
     const { username, password } = this.state
-    // this.isAttempting = true
+    this.isAttempting = true
     // attempt a login - a saga is listening to pick it up from here.
-    // this.props.attemptLogin(username, password)
-    console.log('Signing in with username ', username, ' and password ', password)
+    this.props.attemptLogin(username, password)
   }
 
   handleChangeUsername = (text) => {
@@ -166,17 +165,17 @@ class LoginScreen extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     fetching: state.login.fetching
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    fetching: state.login.fetching
+  }
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     attemptLogin: (username, password) => dispatch(LoginActions.loginRequest(username, password))
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    attemptLogin: (username, password) => dispatch(LoginActions.loginRequest(username, password))
+  }
+}
 
-// connect(mapStateToProps, mapDispatchToProps)
+connect(mapStateToProps, mapDispatchToProps)
 export default (LoginScreen)

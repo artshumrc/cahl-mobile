@@ -1,15 +1,15 @@
-export function loginEmail() {
+export function loginEmail () {
   console.log('login with email')
 }
 
-export function loginGoogle() {
+export function loginGoogle () {
   console.log('login with Google')
 }
 
-export function loginFacebook() {
+export function loginFacebook () {
   console.log('login with FB')
 }
 
-export function loginTwitter() {
+export function loginTwitter () {
   console.log('login with Twitter')
 }

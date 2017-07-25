@@ -1,15 +1,8 @@
 import {
   LOGIN_EMAIL,
   LOGIN_GOOGLE,
-  LOGIN_FACEBOOK,
-  LOGIN_TWITTER
+  LOGIN_FACEBOOK
 } from './Constants.js'
-import {
-  loginEmail,
-  loginGoogle,
-  loginFacebook,
-  loginTwitter
-} from '../Services/Api.js'
 
 const initialState = {
   loggedIn: false

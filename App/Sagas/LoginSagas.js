@@ -1,14 +1,14 @@
 import { LOGIN_EMAIL } from './Constants'
-import { put, takeEvery } from 'redux-saga/effects'
-import loginEmail from './api'
+import { put } from 'redux-saga/effects'
+// import loginEmail from './api'
 
-function* login (action) {
+function * login (action) {
   try {
-    const loginAction = yield loginEmail()
+    // const loginAction = yield loginEmail()
     yield put({ type: LOGIN_EMAIL })
   } catch (e) {
     console.log(e)
   }
 }
 
-export default dataSaga
+export default login

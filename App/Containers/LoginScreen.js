@@ -5,13 +5,12 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
   Keyboard,
   LayoutAnimation
 } from 'react-native'
 import { connect } from 'react-redux'
 import styles from './Styles/LoginScreenStyles'
-import {Images, Metrics} from '../Themes'
+import { Metrics } from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import FacebookButton from '../Components/FacebookButton'
 import GoogleButton from '../Components/GoogleButton'
@@ -33,7 +32,7 @@ class LoginScreen extends React.Component {
     this.state = {
       username: 'username',
       password: 'password',
-      visibleHeight: Metrics.screenHeight,
+      visibleHeight: Metrics.screenHeight
     }
     this.isAttempting = false
   }
@@ -149,16 +148,16 @@ class LoginScreen extends React.Component {
           </View>
         </View>
         <FacebookButton
-          text="Sign in with Facebook"
-          onPress={() => console.log("fb button pressed")}
+          text='Sign in with Facebook'
+          onPress={() => console.log('fb button pressed')}
         />
         <GoogleButton
-          text="Sign in with Google"
-          onPress={() => console.log("google button pressed")}
+          text='Sign in with Google'
+          onPress={() => console.log('google button pressed')}
         />
         <TwitterButton
-          text="Sign in with Twitter"
-          onPress={() => console.log("twitter button pressed")}
+          text='Sign in with Twitter'
+          onPress={() => console.log('twitter button pressed')}
         />
       </ScrollView>
     )

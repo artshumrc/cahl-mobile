@@ -14,7 +14,7 @@ export default class GoogleButton extends Component {
   render () {
     return (
       <TouchableOpacity style={[styles.button, this.props.styles]} onPress={this.props.onPress}>
-        <Icon name="google" style={styles.buttonIcon} />
+        <Icon name='google' style={styles.buttonIcon} />
         <Text style={styles.buttonText}>{this.props.text}</Text>
       </TouchableOpacity>
     )

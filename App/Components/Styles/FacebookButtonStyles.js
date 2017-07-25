@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { Fonts, Colors } from '../../Themes/'
 
-
 export default StyleSheet.create({
   button: {
     marginVertical: 5,
@@ -20,6 +19,6 @@ export default StyleSheet.create({
   buttonIcon: {
     margin: 18,
     color: Colors.white,
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.regular
   }
 })

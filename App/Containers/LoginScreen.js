@@ -8,7 +8,6 @@ import {
   Keyboard,
   LayoutAnimation
 } from 'react-native'
-import { connect } from 'react-redux'
 import styles from './Styles/LoginScreenStyles'
 import { Metrics } from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
@@ -164,17 +163,6 @@ class LoginScreen extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    fetching: state.login.fetching
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    attemptLogin: (username, password) => dispatch(LoginActions.loginRequest(username, password))
-  }
-}
 
-connect(mapStateToProps, mapDispatchToProps)
-export default (LoginScreen)
+export default LoginScreen

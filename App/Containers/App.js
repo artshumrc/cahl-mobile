@@ -1,6 +1,7 @@
 import '../Config'
 import React, { Component } from 'react'
 import RootContainer from './RootContainer'
+import Meteor from 'react-native-meteor'
 
 
 /**
@@ -12,6 +13,9 @@ import RootContainer from './RootContainer'
  *
  * We separate like this to play nice with React Native's hot reloading.
  */
+
+Meteor.connect('ws://localhost:3000/websocket')
+
 class App extends Component {
   render () {
     return (

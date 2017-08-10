@@ -14,8 +14,9 @@ import LoginActions from '../Redux/LoginRedux'
 import FacebookButton from '../Components/FacebookButton'
 import GoogleButton from '../Components/GoogleButton'
 import TwitterButton from '../Components/TwitterButton'
+import Meteor, { createContainer } from 'react-native-meteor'
 
-class LoginScreen extends React.Component {
+export default class LoginScreen extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func,
     fetching: PropTypes.bool,
@@ -163,6 +164,8 @@ class LoginScreen extends React.Component {
   }
 }
 
-
-
-export default LoginScreen
+// export default createContainer(() => {
+//   return {
+//     user: Meteor.user()
+//   };
+// }, LoginScreen);

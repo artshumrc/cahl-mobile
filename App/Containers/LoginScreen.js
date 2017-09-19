@@ -17,7 +17,7 @@ export default class LoginScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.textBox}>
           <Text style={styles.title}>Charlie Archive</Text>
           <Text style={styles.subtitle}>at the Harvard Library</Text>
@@ -36,7 +36,7 @@ export default class LoginScreen extends React.Component {
             onPress={() => console.log('google button pressed')}
           />
         </View>
-      </ScrollView>
+      </View>
     )
   }
 }

@@ -3,8 +3,11 @@ import { Colors, Fonts } from '../../Themes'
 
 export default StyleSheet.create({
   textBox: {
+    marginTop: 100,
+    marginBottom: 100,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'space-around',
+
   },
   title: {
     fontSize: Fonts.size.h2,
@@ -16,6 +19,7 @@ export default StyleSheet.create({
     color: Colors.subtitle
   },
   container: {
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
+    justifyContent: 'space-around'
   }
 })

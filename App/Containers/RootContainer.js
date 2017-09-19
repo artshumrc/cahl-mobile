@@ -3,7 +3,7 @@ import { View, StatusBar } from 'react-native'
 import AppNavigation from '../Navigation/AppNavigation'
 
 // Styles
-import styles from './Styles/RootContainerStyles'
+import styles from './RootContainerStyles'
 
 class RootContainer extends Component {
   componentDidMount () {

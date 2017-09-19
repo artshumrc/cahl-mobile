@@ -3,18 +3,27 @@ import { Fonts, Colors, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   button: {
-    height: 45,
-    borderRadius: 5,
-    marginHorizontal: Metrics.section,
-    marginVertical: Metrics.baseMargin,
-    backgroundColor: Colors.fire,
-    justifyContent: 'center'
+    marginVertical: 5,
+    backgroundColor: Colors.twitter,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    width: 250,
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff'
   },
   buttonText: {
-    color: Colors.snow,
+    margin: 18,
     textAlign: 'center',
-    fontWeight: 'bold',
+    color: Colors.white,
     fontSize: Fonts.size.medium,
-    marginVertical: Metrics.baseMargin
+    fontFamily: Fonts.type.bold
+  },
+  buttonIcon: {
+    margin: 18,
+    color: Colors.white,
+    fontSize: Fonts.size.regular
   }
 })

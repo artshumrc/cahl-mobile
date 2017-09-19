@@ -4,7 +4,7 @@ import { Fonts, Colors } from '../../Themes/'
 export default StyleSheet.create({
   button: {
     marginVertical: 5,
-    backgroundColor: Colors.twitterBlue,
+    backgroundColor: Colors.twitter,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'

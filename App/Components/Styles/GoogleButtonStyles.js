@@ -4,7 +4,7 @@ import { Fonts, Colors } from '../../Themes/'
 export default StyleSheet.create({
   button: {
     marginVertical: 5,
-    backgroundColor: Colors.googleRed,
+    backgroundColor: Colors.google,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'

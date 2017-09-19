@@ -1,48 +1,21 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes'
+import { Colors, Fonts } from '../../Themes'
 
 export default StyleSheet.create({
+  textBox: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    fontSize: Fonts.size.h2,
+    fontFamily: Fonts.type.heavy
+  },
+  subtitle: {
+    fontSize: Fonts.size.h6,
+    fontFamily: Fonts.size.demiBold,
+    color: Colors.subtitle
+  },
   container: {
-    paddingTop: 70,
     backgroundColor: Colors.white
-  },
-  form: {
-    backgroundColor: Colors.cloud,
-    margin: Metrics.baseMargin,
-    borderRadius: 4
-  },
-  row: {
-    paddingVertical: Metrics.doubleBaseMargin,
-    paddingHorizontal: Metrics.doubleBaseMargin
-  },
-  rowLabel: {
-    color: Colors.charcoal
-  },
-  textInput: {
-    height: 40,
-    color: Colors.coal
-  },
-  textInputReadonly: {
-    height: 40,
-    color: Colors.steel
-  },
-  loginRow: {
-    paddingBottom: Metrics.doubleBaseMargin,
-    paddingHorizontal: Metrics.doubleBaseMargin,
-    flexDirection: 'row'
-  },
-  loginButtonWrapper: {
-    flex: 1
-  },
-  loginButton: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: Colors.charcoal,
-    backgroundColor: Colors.panther,
-    padding: 6
-  },
-  loginText: {
-    textAlign: 'center',
-    color: Colors.silver
   }
 })

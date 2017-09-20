@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react'
-import { View, ScrollView, Text } from 'react-native'
+import React from 'react';
+import { View, ScrollView, Text } from 'react-native';
 
 class CommentsScreen extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {
@@ -15,15 +15,11 @@ class CommentsScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-        <View>
-
-        </View>
-        <View>
-
-        </View>
+        <View />
+        <View />
       </ScrollView>
-    )
+    );
   }
 }
 
-export default CommentsScreen
+export default CommentsScreen;

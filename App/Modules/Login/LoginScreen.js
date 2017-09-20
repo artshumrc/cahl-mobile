@@ -1,20 +1,35 @@
-import React, { PropTypes } from 'react'
-import { View, ScrollView, Text } from 'react-native'
+import React from 'react';
+import { View, ScrollView, Text } from 'react-native';
 
 // components
-import RoundedButton from '../../Components/RoundedButton'
+import RoundedButton from '../../Components/RoundedButton';
 
 // styles
-import { LoginStyles, TwitterButtonStyles, GoogleButtonStyles, FacebookButtonStyles } from './LoginScreenStyles'
+import { LoginStyles, TwitterButtonStyles, GoogleButtonStyles, FacebookButtonStyles } from './LoginScreenStyles';
 
 
 export default class LoginScreen extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
+
+    this.handleTwitterSubmit = this.handleTwitterSubmit.bind(this);
+    this.handleFacebookSubmit = this.handleFacebookSubmit.bind(this);
+    this.handleGoogleSubmit = this.handleGoogleSubmit.bind(this);
+  }
+
+  handleTwitterSubmit() {
 
   }
 
-  render () {
+  handleFacebookSubmit() {
+
+  }
+
+  handleGoogleSubmit() {
+
+  }
+
+  render() {
     return (
       <ScrollView style={LoginStyles.container}>
         <View style={LoginStyles.textBox}>
@@ -23,25 +38,25 @@ export default class LoginScreen extends React.Component {
         </View>
         <View style={LoginStyles.buttonBox}>
           <RoundedButton
-            onPress={() => console.log('twitter button pressed')}
-            text='Sign in with Twitter'
-            icon='twitter'
+            onPress={() => this.handleTwitterSubmit}
+            text="Sign in with Twitter"
+            icon="twitter"
             buttonStyle={TwitterButtonStyles}
           />
           <RoundedButton
-            onPress={() => console.log('facebook button pressed')}
-            text='Sign in with Facebook'
-            icon='facebook'
+            onPress={() => this.handleFacebookSubmit}
+            text="Sign in with Facebook"
+            icon="facebook"
             buttonStyle={FacebookButtonStyles}
           />
           <RoundedButton
-            onPress={() => console.log('google button pressed')}
-            text='Sign in with Google'
-            icon='google'
+            onPress={() => this.handleGoogleSubmit}
+            text="Sign in with Google"
+            icon="google"
             buttonStyle={GoogleButtonStyles}
           />
         </View>
       </ScrollView>
-    )
+    );
   }
 }

@@ -4,7 +4,7 @@ const colors = {
   google: '#5186EC',
   white: '#FFF',
   black: '#000',
-  subtitle: '#999999'
-}
+  subtitle: '#999999',
+};
 
-export default colors
+export default colors;

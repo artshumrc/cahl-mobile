@@ -1,6 +1,6 @@
-import '../Config'
-import React, { Component } from 'react'
-import RootContainer from './RootContainer'
+import '../Config';
+import React, { Component } from 'react';
+import RootContainer from './RootContainer';
 
 
 /**
@@ -14,12 +14,12 @@ import RootContainer from './RootContainer'
  */
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <RootContainer />
-    )
+    );
   }
 }
 
 // allow reactotron overlay for fast design in dev mode
-export default App
+export default App;

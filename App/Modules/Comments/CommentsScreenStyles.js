@@ -4,22 +4,22 @@ import { Colors, Fonts } from '../../Themes';
 const CommentsScreenStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
-  }
+  },
 });
 
 const CommentStyles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   name: {
-    fontFamily: Fonts.type.bold
+    fontFamily: Fonts.type.bold,
   },
   text: {
     fontFamily: Fonts.type.base,
   },
   date: {
     fontFamily: Fonts.type.base,
-    color: Colors.subtitle
+    color: Colors.subtitle,
   },
   image: {
     margin: 10,
@@ -30,7 +30,7 @@ const CommentStyles = StyleSheet.create({
   commentText: {
     flexDirection: 'row',
     marginTop: 10,
-  }
+  },
 });
 
 export { CommentsScreenStyles, CommentStyles };

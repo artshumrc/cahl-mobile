@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native';
 
 // styles
@@ -9,7 +10,7 @@ import { CommentStyles } from './CommentsScreenStyles';
 
 const Comment = ({ comment }) => (
   <View style={CommentStyles.container}>
-    <Image style={CommentStyles.image} source={{uri: comment.img.src}} />
+    <Image style={CommentStyles.image} source={{ uri: comment.img.src }} />
     <View>
       <View style={CommentStyles.commentText}>
         <Text style={CommentStyles.name}>{`${comment.name}  `}</Text>
@@ -19,5 +20,16 @@ const Comment = ({ comment }) => (
     </View>
   </View>
 );
+
+Comment.propTypes = {
+  comment: PropTypes.shape({
+    img: PropTypes.shape({
+      src: PropTypes.string,
+    }),
+    name: PropTypes.string,
+    date: PropTypes.string,
+    text: PropTypes.string,
+  }).isRequired,
+};
 
 export default Comment;

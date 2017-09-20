@@ -5,10 +5,13 @@ import { View, ScrollView, Text } from 'react-native';
 import RoundedButton from '../../Components/RoundedButton';
 
 // styles
-import { LoginStyles, TwitterButtonStyles, GoogleButtonStyles, FacebookButtonStyles } from './LoginScreenStyles';
+import {
+  LoginStyles,
+  TwitterButtonStyles,
+  GoogleButtonStyles,
+  FacebookButtonStyles } from './LoginScreenStyles';
 
-
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,19 +20,27 @@ export default class LoginScreen extends React.Component {
     this.handleGoogleSubmit = this.handleGoogleSubmit.bind(this);
   }
 
-  handleTwitterSubmit() {
+  static navigationOptions = {
+    title: 'Sign In'
+  }
 
+  handleTwitterSubmit() {
+    const { navigate } = this.props.navigation;
+    navigate('CommentsScreen');
   }
 
   handleFacebookSubmit() {
-
+    const { navigate } = this.props.navigation;
+    navigate('CommentsScreen');
   }
 
   handleGoogleSubmit() {
-
+    const { navigate } = this.props.navigation;
+    navigate('CommentsScreen');
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <ScrollView style={LoginStyles.container}>
         <View style={LoginStyles.textBox}>
@@ -38,19 +49,19 @@ export default class LoginScreen extends React.Component {
         </View>
         <View style={LoginStyles.buttonBox}>
           <RoundedButton
-            onPress={() => this.handleTwitterSubmit}
+            onPress={this.handleTwitterSubmit}
             text="Sign in with Twitter"
             icon="twitter"
             buttonStyle={TwitterButtonStyles}
           />
           <RoundedButton
-            onPress={() => this.handleFacebookSubmit}
+            onPress={this.handleFacebookSubmit}
             text="Sign in with Facebook"
             icon="facebook"
             buttonStyle={FacebookButtonStyles}
           />
           <RoundedButton
-            onPress={() => this.handleGoogleSubmit}
+            onPress={this.handleGoogleSubmit}
             text="Sign in with Google"
             icon="google"
             buttonStyle={GoogleButtonStyles}
@@ -60,3 +71,5 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
+
+export default LoginScreen;

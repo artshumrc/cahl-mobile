@@ -1,7 +1,8 @@
 const type = {
   base: 'AvenirNext-regular',
   heavy: 'AvenirNext-heavy',
-  demiBold: 'AvenirNext-demibold ',
+  demiBold: 'AvenirNext-demibold',
+  bold: 'AvenirNext-bold',
 };
 
 const size = {

@@ -16,6 +16,7 @@ const CommentStyles = StyleSheet.create({
   },
   text: {
     fontFamily: Fonts.type.base,
+
   },
   date: {
     fontFamily: Fonts.type.base,
@@ -28,8 +29,9 @@ const CommentStyles = StyleSheet.create({
     borderRadius: 25,
   },
   commentText: {
-    flexDirection: 'row',
     marginTop: 10,
+    width: 300,
+    flexGrow: 1,
   },
 });
 

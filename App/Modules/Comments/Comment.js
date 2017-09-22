@@ -7,14 +7,17 @@ import { CommentStyles } from './CommentsScreenStyles';
 
 // TODO: name and text should be together
 // TODO: test for overflow
+// TODO: add bottom border to comment text
 
 const Comment = ({ comment }) => (
   <View style={CommentStyles.container}>
     <Image style={CommentStyles.image} source={{ uri: comment.img.src }} />
     <View>
       <View style={CommentStyles.commentText}>
-        <Text style={CommentStyles.name}>{`${comment.name}  `}</Text>
-        <Text style={CommentStyles.text}>{comment.text}</Text>
+        <Text>
+          <Text style={CommentStyles.name}>{`${comment.name}  `}</Text>
+          <Text style={CommentStyles.text}>{comment.text}</Text>
+        </Text>
       </View>
       <Text style={CommentStyles.date}>{comment.date}</Text>
     </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, TextInput, Image, Button } from 'react-native';
 
 import Comment from './Comment';
 
@@ -31,6 +31,10 @@ class CommentsScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      addComment: 'Add your comment.'
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -43,22 +47,37 @@ class CommentsScreen extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { addComment } = this.state;
     return (
-      <ScrollView style={CommentsScreenStyles.container}>
-        <View>
-          {
-            testComments.map(comment =>
-              <Comment
-                key={comment._id}
-                comment={comment}
-              />
-            )
-          }
+      <View style={CommentsScreenStyles.container}>
+        <ScrollView>
+          <View>
+            {
+              testComments.map(comment =>
+                <Comment
+                  key={comment._id}
+                  comment={comment}
+                />
+              )
+            }
+          </View>
+        </ScrollView>
+        <View style={CommentsScreenStyles.textInputContainer}>
+          <Image
+              style={CommentsScreenStyles.image}
+              source={{ uri: testComment1.img.src }}
+            />
+          <TextInput
+            value={addComment}
+            style={CommentsScreenStyles.textInput}
+          />
+          <Button
+            title={'Post'}
+            onPress={this.handleSubmit}
+          />
         </View>
-        <View>
-        </View>
-      </ScrollView>
+      </View>
+
     );
   }
 }

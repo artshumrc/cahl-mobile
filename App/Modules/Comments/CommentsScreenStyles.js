@@ -4,11 +4,28 @@ import { Colors, Fonts } from '../../Themes';
 const CommentsScreenStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
+    flex: 1,
+  },
+  textInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+  },
+  textInput: {
+    height: 40,
+    width: 250,
+    color: Colors.subtitle,
+  },
+  image: {
+    marginRight: 10,
+    height: 30,
+    width: 30,
+    borderRadius: 15,
   },
 });
 
 const CommentStyles = StyleSheet.create({
-  container: {
+  commentContainer: {
     flexDirection: 'row',
   },
   name: {

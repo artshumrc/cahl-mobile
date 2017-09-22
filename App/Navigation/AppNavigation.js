@@ -7,7 +7,7 @@ import styles from './NavigationStyles';
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
   LoginScreen: { screen: LoginScreen },
-  CommentsScreen: { screen: CommentsScreen},
+  CommentsScreen: { screen: CommentsScreen },
 }, {
   // Default config for all screens
   headerMode: 'screen',

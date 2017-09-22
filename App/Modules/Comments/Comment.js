@@ -10,7 +10,7 @@ import { CommentStyles } from './CommentsScreenStyles';
 // TODO: add bottom border to comment text
 
 const Comment = ({ comment }) => (
-  <View style={CommentStyles.container}>
+  <View style={CommentStyles.commentContainer}>
     <Image style={CommentStyles.image} source={{ uri: comment.img.src }} />
     <View>
       <View style={CommentStyles.commentText}>

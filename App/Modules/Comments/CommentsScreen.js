@@ -69,7 +69,9 @@ class CommentsScreen extends React.Component {
             />
           <TextInput
             value={addComment}
+            onChange={(addComment) => this.setState({ addComment })}
             style={CommentsScreenStyles.textInput}
+            clearTextOnFocus={true}
           />
           <Button
             title={'Post'}

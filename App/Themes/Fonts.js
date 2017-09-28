@@ -3,6 +3,7 @@ const type = {
   heavy: 'AvenirNext-heavy',
   demiBold: 'AvenirNext-demibold',
   bold: 'AvenirNext-bold',
+  ultraLight: 'AvenirNext-ultralight',
 };
 
 const size = {

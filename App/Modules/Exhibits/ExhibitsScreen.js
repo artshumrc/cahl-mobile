@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text, Button } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
+
+// styles
+import ExhibitsScreenStyles from './ExhibitsScreenStyles';
+
+const sampleDescription = "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold";
+const sampleLocation = "01/262"
 
 class ExhibitsScreen extends React.Component {
   constructor(props) {
@@ -26,15 +32,37 @@ class ExhibitsScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View>
-          <Text>Exhibits view</Text>
+      <ScrollView style={ExhibitsScreenStyles.container}>
+        <View style={ExhibitsScreenStyles.textBox}>
+          <Text style={ExhibitsScreenStyles.title}>Charlie Archive</Text>
+          <Text style={ExhibitsScreenStyles.subtitle}>at the Harvard Library</Text>
         </View>
         <View>
-          <Button
-            title={'View comments'}
-            onPress={this.navigateToComments}
+          <Text style={ExhibitsScreenStyles.exhibitNumber}>{sampleLocation}</Text>
+          <Image
+            style={ExhibitsScreenStyles.exhibitImage}
+            source={{ uri: '/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png' }}
           />
+          <Text>
+            <Text
+              style={ExhibitsScreenStyles.exhibitDescription}
+              numberOfLines={3}
+            >
+              {sampleDescription}
+            </Text>
+            <Text
+              style={ExhibitsScreenStyles.showMoreText}
+              onPress={this.navigateToComments}
+            >
+              {`  More`}
+            </Text>
+          </Text>
+          <TouchableOpacity
+            onPress={this.navigateToComments}
+            style={ExhibitsScreenStyles.commentsButton}
+          >
+            <Text style={ExhibitsScreenStyles.commentsButtonText}>View 2 comments</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );

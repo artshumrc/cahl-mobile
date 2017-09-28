@@ -66,7 +66,7 @@ class CommentsScreen extends React.Component {
           <Image
               style={CommentsScreenStyles.image}
               source={{ uri: testComment1.img.src }}
-            />
+          />
           <TextInput
             value={addComment}
             onChange={(addComment) => this.setState({ addComment })}

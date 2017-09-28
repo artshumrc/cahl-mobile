@@ -1,8 +1,8 @@
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import LoginScreen from '../Modules/Login/LoginScreen';
-import CommentsScreen from '../Modules/Comments/CommentsScreen';
-import ExhibitsScreen from '../Modules/Exhibits/ExhibitsScreen';
-import StoriesScreen from '../Modules/Stories/StoriesScreen';
+import LoginScreen from '../Modules/Login';
+import CommentsScreen from '../Modules/Comments';
+import ExhibitsScreen from '../Modules/Exhibits';
+import StoriesScreen from '../Modules/Stories';
 
 import styles from './NavigationStyles';
 

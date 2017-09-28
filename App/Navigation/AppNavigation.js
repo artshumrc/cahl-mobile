@@ -6,20 +6,36 @@ import StoriesScreen from '../Modules/Stories/StoriesScreen';
 
 import styles from './NavigationStyles';
 
-const PrimaryNav = TabNavigator({
-  ExhibitsScreen: { screen: ExhibitsScreen },
-  StoriesScreen: { screen: StoriesScreen },
+
+const ExhibitStoriesTabNav = TabNavigator({
+  ExhibitsTab: {
+    screen: ExhibitsScreen,
+    path: '/',
+    navigationOptions: {
+    },
+  },
+  StoriesTab: {
+    screen: StoriesScreen,
+    path: '/stories',
+    navigationOptions: {
+    },
+  },
 }, {
   tabBarPosition: 'top',
   animationEnabled: true,
 });
 
-export const CommentsNav = StackNavigator({
-  LoginScreen: { screen: LoginScreen },
+const PrimaryNav = StackNavigator({
+  Root: {
+    screen: ExhibitStoriesTabNav,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  ExhibitsScreen: { screen: ExhibitsScreen },
   CommentsScreen: { screen: CommentsScreen },
+  LoginScreen: { screen: LoginScreen },
 }, {
-  headerMode: 'screen',
-  initialRouteName: 'CommentsScreen',
   navigationOptions: {
     headerStyle: styles.header,
   },

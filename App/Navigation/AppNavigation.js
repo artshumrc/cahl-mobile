@@ -1,17 +1,25 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import LoginScreen from '../Modules/Login/LoginScreen';
 import CommentsScreen from '../Modules/Comments/CommentsScreen';
+import ExhibitsScreen from '../Modules/Exhibits/ExhibitsScreen';
+import StoriesScreen from '../Modules/Stories/StoriesScreen';
 
 import styles from './NavigationStyles';
 
-// Manifest of possible screens
-const PrimaryNav = StackNavigator({
+const PrimaryNav = TabNavigator({
+  ExhibitsScreen: { screen: ExhibitsScreen },
+  StoriesScreen: { screen: StoriesScreen },
+}, {
+  tabBarPosition: 'top',
+  animationEnabled: true,
+});
+
+export const CommentsNav = StackNavigator({
   LoginScreen: { screen: LoginScreen },
   CommentsScreen: { screen: CommentsScreen },
 }, {
-  // Default config for all screens
   headerMode: 'screen',
-  initialRouteName: 'LoginScreen',
+  initialRouteName: 'CommentsScreen',
   navigationOptions: {
     headerStyle: styles.header,
   },

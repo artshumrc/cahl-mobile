@@ -43,7 +43,7 @@ class ExhibitsScreen extends React.Component {
             style={ExhibitsScreenStyles.exhibitImage}
             source={{ uri: '/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png' }}
           />
-          <Text>
+          <Text style={{ marginLeft: 15 }}>
             <Text
               style={ExhibitsScreenStyles.exhibitDescription}
               numberOfLines={3}

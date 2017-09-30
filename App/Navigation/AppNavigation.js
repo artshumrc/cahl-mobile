@@ -11,18 +11,19 @@ const ExhibitStoriesTabNav = TabNavigator({
   ExhibitsTab: {
     screen: ExhibitsScreen,
     path: '/',
-    navigationOptions: {
-    },
   },
   StoriesTab: {
     screen: StoriesScreen,
     path: '/stories',
-    navigationOptions: {
-    },
   },
 }, {
   tabBarPosition: 'top',
   animationEnabled: true,
+  tabBarOptions: {
+    style: styles.tabHeader,
+    labelStyle: styles.tabLabel,
+    activeTintColor: '#000',
+  },
 });
 
 const PrimaryNav = StackNavigator({

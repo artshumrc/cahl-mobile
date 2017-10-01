@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { Fonts, Colors } from '../../Themes';
 
 const StoriesScreenStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
+  },
+  headerContainer: {
+    paddingBottom: 75,
   },
   questionText: {
     fontSize: 20,
@@ -39,7 +42,49 @@ const StoriesScreenStyles = StyleSheet.create({
 });
 
 const StoryStyles = StyleSheet.create({
-
+  storyContainer: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    borderBottomColor: Colors.subtitle,
+    borderBottomWidth: 1,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 15,
+  },
+  nameText: {
+    fontSize: 14,
+    fontFamily: Fonts.type.demiBold,
+  },
+  profileImage: {
+    height: 30,
+    width: 30,
+    borderRadius: 15,
+    marginRight: 5,
+  },
+  dateText: {
+    fontSize: 12,
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+  },
+  storyImage: {
+    width: Dimensions.get('window').width,
+    height: 200,
+  },
+  storyText: {
+    fontSize: 14,
+    fontFamily: Fonts.type.base,
+    marginLeft: 15,
+  },
+  commentsButton: {
+    marginLeft: 15,
+  },
+  commentsButtonText: {
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+    fontSize: 14,
+  },
 });
 
 export { StoriesScreenStyles, StoryStyles };

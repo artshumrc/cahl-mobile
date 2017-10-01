@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { ScrollView, View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Story from './Story.js';
+
 // styles
 import { StoriesScreenStyles } from './StoriesScreenStyles';
 
-// TODO: Add stories (maybe use comment component for stories without images?)
 
 const sampleStory1 = {
   _id: 'sdhfjsdfjkjh7634723',
@@ -14,7 +15,8 @@ const sampleStory1 = {
   text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
   profileImg: '/Users/tyler/Archimedes/cahl-mobile/App/Images/IMG_0487.jpg',
   storyImg: '/Users/tyler/Archimedes/cahl-mobile/App/Images/fabien b 65.png',
-  comments: ['1 comment', '2 comment', '3 Comment']
+  comments: ['1 comment', '2 comment', '3 Comment'],
+  date: 'October 1, 2017'
 }
 
 const sampleStory2 = {
@@ -22,7 +24,8 @@ const sampleStory2 = {
   name: 'Tyler Kirby',
   text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
   profileImg: '/Users/tyler/Archimedes/cahl-mobile/App/Images/IMG_0487.jpg',
-  comments: ['1 comment', '2 comment']
+  comments: ['1 comment', '2 comment'],
+  date: 'October 2, 2017',
 }
 
 const sampleStories = [sampleStory1, sampleStory2]
@@ -50,7 +53,7 @@ class StoriesScreen extends React.Component {
     const { addStory } = this.state;
     return (
       <ScrollView style={StoriesScreenStyles.container}>
-        <View>
+        <View style={StoriesScreenStyles.headerContainer}>
           <Text style={StoriesScreenStyles.questionText}>What was your personal react to the shootings and media coverage that followed?</Text>
           <View style={StoriesScreenStyles.submitStory}>
             <TextInput
@@ -64,7 +67,9 @@ class StoriesScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-
+        <View>
+          { sampleStories.map(story => <Story story={story} />) }
+        </View>
       </ScrollView>
     );
   }

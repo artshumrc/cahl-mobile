@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
 
 // styles
 import { StoryStyles } from './StoriesScreenStyles';
@@ -37,22 +37,23 @@ class Story extends React.Component {
     const { story } = this.props;
     return (
       <View style={StoryStyles.storyContainer}>
-        <View>
-          <Image source={{ uri: story.profileImg }} />
+        <View style={StoryStyles.headerContainer}>
+          <Image style={StoryStyles.profileImage} source={{ uri: story.profileImg }} />
           <View>
-            <Text>{story.name}</Text>
-            <Text>{story.date}</Text>
+            <Text style={StoryStyles.nameText}>{story.name}</Text>
+            <Text style={StoryStyles.dateText}>{story.date}</Text>
           </View>
         </View>
         <View>
-          { story.storyImg ? <Image source={{ uri: story.storyImg }} /> : ''}
-          <Text>{story.text}</Text>
-          <Button
-            title={`View ${story.comments.length} ${story.comments.length === 1 ? 'comment.' : 'comments'}`}
+          { story.storyImg ? <Image style={StoryStyles.storyImage} source={{ uri: story.storyImg }} /> : <View />}
+          <Text style={StoryStyles.storyText}>{story.text}</Text>
+          <TouchableOpacity
             onPress={this.navigateToComments}
-          />
+            style={StoryStyles.commentsButton}
+          >
+            <Text style={StoryStyles.commentsButtonText}>{`View ${story.comments.length} comments`}</Text>
+          </TouchableOpacity>
         </View>
-
       </View>
     );
   }

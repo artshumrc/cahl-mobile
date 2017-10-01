@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Fonts, Colors } from '../../Themes';
 
-export default StyleSheet.create({
+const StoriesScreenStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
   },
@@ -37,3 +37,9 @@ export default StyleSheet.create({
     fontSize: 16,
   },
 });
+
+const StoryStyles = StyleSheet.create({
+
+});
+
+export { StoriesScreenStyles, StoryStyles };

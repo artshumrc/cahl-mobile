@@ -32,7 +32,8 @@ class CommentsScreen extends React.Component {
     super(props);
 
     this.state = {
-      addComment: 'Add your comment.'
+      addComment: 'Add your comment.',
+      loggedIn: false,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,8 +47,13 @@ class CommentsScreen extends React.Component {
 
   }
 
+  login() {
+    const { navigate } = this.props.navigation;
+    navigate('Login');
+  }
+
   render() {
-    const { addComment } = this.state;
+    const { addComment, loggedIn } = this.state;
     return (
       <View style={CommentsScreenStyles.container}>
         <ScrollView>
@@ -73,10 +79,19 @@ class CommentsScreen extends React.Component {
             style={CommentsScreenStyles.textInput}
             clearTextOnFocus={true}
           />
-          <Button
-            title={'Post'}
-            onPress={this.handleSubmit}
-          />
+          {
+            loggedIn ?
+              <Button
+                title={'Post'}
+                onPress={this.handleSubmit}
+              />
+              :
+              <Button
+                title={'Sign in'}
+                onPress={this.login}
+              />
+          }
+
         </View>
       </View>
 

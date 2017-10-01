@@ -1,18 +1,33 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // styles
-import SearchScreenStyles from './SearchScreenStyles.js';
+import styles from './SearchScreenStyles.js';
 
 class SearchScreen extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      exhibitNumber: '- - -'
+    }
+  }
   static navigationOptions = {
-    tabBarLabel: <Icon name="search" style={SearchScreenStyles.tabLabel}/>
+    tabBarLabel: <Icon name="search" style={styles.tabLabel}/>
   }
   render() {
+    const { exhibitNumber } = this.state;
     return (
-      <View>
-        <Text>Search Screen</Text>
+      <View style={styles.container}>
+        <Text style={styles.instructionText}>Enter an item number</Text>
+        <TextInput
+          value={exhibitNumber}
+          onChange={(exhibitNumber) => this.setState({ exhibitNumber })}
+          keyboardType = 'number-pad'
+          style={styles.textInput}
+          clearTextOnFocus={true}
+        />
       </View>
     )
   }

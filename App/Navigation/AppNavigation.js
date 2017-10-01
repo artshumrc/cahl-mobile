@@ -42,7 +42,6 @@ const ExhibitStoriesTabNav = TabNavigator({
   },
 }, {
   tabBarPosition: 'top',
-  animationEnabled: true,
   tabBarOptions: {
     style: styles.tabHeader,
     labelStyle: styles.tabLabel,

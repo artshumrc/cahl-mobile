@@ -8,6 +8,7 @@ import Exhibit from './Exhibit.js';
 import { ExhibitsScreenStyles } from './ExhibitsScreenStyles';
 
 const sampleExhibit = {
+  _id: '762379bfgfgf4gf',
   description: "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold",
   number: 1,
   imageSource: "/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png",
@@ -39,6 +40,7 @@ class ExhibitsScreen extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <ScrollView style={ExhibitsScreenStyles.container}>
         <View style={ExhibitsScreenStyles.textBox}>
@@ -46,7 +48,7 @@ class ExhibitsScreen extends React.Component {
           <Text style={ExhibitsScreenStyles.subtitle}>at the Harvard Library</Text>
         </View>
         <View>
-          { sampleExhibits.map(exhibit => <Exhibit exhibit={exhibit} />) }
+          { sampleExhibits.map(exhibit => <Exhibit exhibit={exhibit} navigation={navigation} key={exhibit._id}/>) }
         </View>
       </ScrollView>
     );

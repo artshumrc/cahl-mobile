@@ -20,7 +20,7 @@ const sampleStory1 = {
 }
 
 const sampleStory2 = {
-  _id: 'sdhfjsdfjkjh7634723',
+  _id: 'sdhfjsdfjkj362gf334723',
   name: 'Tyler Kirby',
   text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
   profileImg: '/Users/tyler/Archimedes/cahl-mobile/App/Images/IMG_0487.jpg',
@@ -51,6 +51,7 @@ class StoriesScreen extends React.Component {
 
   render() {
     const { addStory } = this.state;
+    const { navigation } = this.props;
     return (
       <ScrollView style={StoriesScreenStyles.container}>
         <View style={StoriesScreenStyles.headerContainer}>
@@ -68,7 +69,7 @@ class StoriesScreen extends React.Component {
           </View>
         </View>
         <View>
-          { sampleStories.map(story => <Story story={story} />) }
+          { sampleStories.map(story => <Story story={story} navigation={navigation} key={story._id}/>) }
         </View>
       </ScrollView>
     );

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFF",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#999999",
+        "fontFamily": "AvenirNext-regular",
+        "fontSize": 20,
+      }
+    }
+  >
+    Enter an item number
+  </Text>
+  <TextInput
+    clearTextOnFocus={true}
+    keyboardType="number-pad"
+    onChange={[Function]}
+    style={
+      Object {
+        "height": 10,
+        "width": 50,
+      }
+    }
+    value="- - -"
+  />
+</View>
+`;

@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "justifyContent": "space-around",
+          "marginBottom": 100,
+          "marginLeft": 15,
+          "marginTop": 100,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontFamily": "AvenirNext-heavy",
+            "fontSize": 34,
+          }
+        }
+      >
+        Charlie Archive
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#999999",
+            "fontFamily": undefined,
+            "fontSize": 19,
+          }
+        }
+      >
+        at the Harvard Library
+      </Text>
+    </View>
+    <View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontFamily": "AvenirNext-ultralight",
+              "fontSize": 16,
+              "marginLeft": 15,
+            }
+          }
+        >
+          1/265
+        </Text>
+        <Image
+          source={
+            Object {
+              "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/#JeSuisCharlie.png",
+            }
+          }
+          style={
+            Object {
+              "height": 500,
+              "width": 750,
+            }
+          }
+        />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "AvenirNext-regular",
+                "fontSize": 14,
+                "marginLeft": 15,
+              }
+            }
+          >
+            A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            onPress={[Function]}
+            style={
+              Object {
+                "color": "#999999",
+                "fontFamily": "AvenirNext-regular",
+                "fontSize": 14,
+              }
+            }
+          >
+              More
+          </Text>
+        </Text>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "marginLeft": 15,
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#999999",
+                "fontFamily": "AvenirNext-regular",
+                "fontSize": 14,
+              }
+            }
+          >
+            View 2 comments
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

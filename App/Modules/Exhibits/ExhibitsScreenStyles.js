@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { Colors, Fonts } from '../../Themes';
+import { Colors, Fonts } from '../../themes';
 
 const ExhibitsScreenStyles = StyleSheet.create({
   container: {

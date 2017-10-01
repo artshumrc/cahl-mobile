@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { Fonts, Colors } from '../../Themes';
+import { Fonts, Colors } from '../../themes';
 
 const StoriesScreenStyles = StyleSheet.create({
   container: {

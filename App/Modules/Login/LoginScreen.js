@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
 
 // components
-import RoundedButton from '../../Components/RoundedButton';
+import RoundedButton from '../../components/RoundedButton';
 
 // styles
 import {

@@ -3,11 +3,11 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Flag from 'react-native-flags';
 
 // views
-import LoginScreen from '../Modules/Login';
-import CommentsScreen from '../Modules/Comments';
-import ExhibitsScreen from '../Modules/Exhibits';
-import StoriesScreen from '../Modules/Stories';
-import SearchScreen from '../Modules/Search';
+import LoginScreen from '../modules/Login';
+import CommentsScreen from '../modules/Comments';
+import ExhibitsScreen from '../modules/Exhibits';
+import StoriesScreen from '../modules/Stories';
+import SearchScreen from '../modules/Search';
 
 // styles
 import styles from './NavigationStyles';

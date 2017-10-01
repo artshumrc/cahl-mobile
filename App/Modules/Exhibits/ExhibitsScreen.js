@@ -11,7 +11,7 @@ const sampleExhibit = {
   _id: '762379bfgfgf4gf',
   description: "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold",
   number: 1,
-  imageSource: "/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png",
+  imageSource: "/Users/tyler/Archimedes/cahl-mobile/App/images/#JeSuisCharlie.png",
   comments: ['ajshf', 'djfhjsd']
 }
 

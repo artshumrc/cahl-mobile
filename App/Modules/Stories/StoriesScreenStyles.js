@@ -52,6 +52,7 @@ const StoryStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 15,
+    marginBottom: 10,
   },
   nameText: {
     fontSize: 14,
@@ -76,6 +77,8 @@ const StoryStyles = StyleSheet.create({
     fontSize: 14,
     fontFamily: Fonts.type.base,
     marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
   },
   commentsButton: {
     marginLeft: 15,

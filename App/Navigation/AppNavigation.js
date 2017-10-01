@@ -12,6 +12,8 @@ import SearchScreen from '../Modules/Search';
 // styles
 import styles from './NavigationStyles';
 
+// TODO: Position header correctly for tab navigator
+
 
 const ExhibitStoriesTabNav = TabNavigator({
   ExhibitsTab: {

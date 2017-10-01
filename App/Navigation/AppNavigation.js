@@ -37,7 +37,7 @@ const ExhibitStoriesTabNav = TabNavigator({
       labelStyle: styles.languageLabel,
     },
     navigationOptions: {
-      tabBarLabel: <Flag code="FR" size={32} type="shiny" />,
+      tabBarLabel: <Flag code="FR" size={24} type="shiny" style={{ left: 45, bottom: 4 }} />,
     },
   },
 }, {

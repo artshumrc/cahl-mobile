@@ -16,6 +16,7 @@ export default StyleSheet.create({
   tabLabel: {
     fontFamily: Fonts.type.demiBold,
     fontSize: 16,
+    alignItems: 'center',
   },
   storiesLabel: {
     position: 'relative',
@@ -28,6 +29,6 @@ export default StyleSheet.create({
 
   },
   languageLabel: {
-
+    left: 60,
   },
 });

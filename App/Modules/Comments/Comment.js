@@ -3,23 +3,23 @@ import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native';
 
 // styles
-import { CommentStyles } from './CommentsScreenStyles';
+import styles from './CommentStyles';
 
 // TODO: name and text should be together
 // TODO: test for overflow
 // TODO: add bottom border to comment text
 
 const Comment = ({ comment }) => (
-  <View style={CommentStyles.commentContainer}>
-    <Image style={CommentStyles.image} source={{ uri: comment.img.src }} />
+  <View style={styles.commentContainer}>
+    <Image style={styles.image} source={{ uri: comment.img.src }} />
     <View>
-      <View style={CommentStyles.commentText}>
+      <View style={styles.commentText}>
         <Text>
-          <Text style={CommentStyles.name}>{`${comment.name}  `}</Text>
-          <Text style={CommentStyles.text}>{comment.text}</Text>
+          <Text style={styles.name}>{`${comment.name}  `}</Text>
+          <Text style={styles.text}>{comment.text}</Text>
         </Text>
       </View>
-      <Text style={CommentStyles.date}>{comment.date}</Text>
+      <Text style={styles.date}>{comment.date}</Text>
     </View>
   </View>
 );

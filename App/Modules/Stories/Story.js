@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
 
 // styles
-import { StoryStyles } from './StoriesScreenStyles';
+import styles from './StoryStyles';
 
 // TODO: name and text should be together
 // TODO: test for overflow
@@ -36,22 +36,22 @@ class Story extends React.Component {
   render() {
     const { story } = this.props;
     return (
-      <View style={StoryStyles.storyContainer}>
-        <View style={StoryStyles.headerContainer}>
-          <Image style={StoryStyles.profileImage} source={{ uri: story.profileImg }} />
+      <View style={styles.storyContainer}>
+        <View style={styles.headerContainer}>
+          <Image style={styles.profileImage} source={{ uri: story.profileImg }} />
           <View>
-            <Text style={StoryStyles.nameText}>{story.name}</Text>
-            <Text style={StoryStyles.dateText}>{story.date}</Text>
+            <Text style={styles.nameText}>{story.name}</Text>
+            <Text style={styles.dateText}>{story.date}</Text>
           </View>
         </View>
         <View>
-          { story.storyImg ? <Image style={StoryStyles.storyImage} source={{ uri: story.storyImg }} /> : <View />}
-          <Text style={StoryStyles.storyText}>{story.text}</Text>
+          { story.storyImg ? <Image style={styles.storyImage} source={{ uri: story.storyImg }} /> : <View />}
+          <Text style={styles.storyText}>{story.text}</Text>
           <TouchableOpacity
             onPress={this.navigateToComments}
-            style={StoryStyles.commentsButton}
+            style={styles.commentsButton}
           >
-            <Text style={StoryStyles.commentsButtonText}>{`View ${story.comments.length} comments`}</Text>
+            <Text style={styles.commentsButtonText}>{`View ${story.comments.length} comments`}</Text>
           </TouchableOpacity>
         </View>
       </View>

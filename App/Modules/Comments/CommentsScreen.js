@@ -3,7 +3,7 @@ import { View, ScrollView, Text, TextInput, Image, Button } from 'react-native';
 
 import Comment from './Comment';
 
-import { CommentsScreenStyles } from './CommentsScreenStyles';
+import styles from './CommentsScreenStyles';
 
 const testComment1 = {
   _id: "hgfygu34573eiurgsdbf",
@@ -55,7 +55,7 @@ class CommentsScreen extends React.Component {
   render() {
     const { addComment, loggedIn } = this.state;
     return (
-      <View style={CommentsScreenStyles.container}>
+      <View style={styles.container}>
         <ScrollView>
           <View>
             {
@@ -68,15 +68,15 @@ class CommentsScreen extends React.Component {
             }
           </View>
         </ScrollView>
-        <View style={CommentsScreenStyles.textInputContainer}>
+        <View style={styles.textInputContainer}>
           <Image
-              style={CommentsScreenStyles.image}
+              style={styles.image}
               source={{ uri: testComment1.img.src }}
           />
           <TextInput
             value={addComment}
             onChange={(addComment) => this.setState({ addComment })}
-            style={CommentsScreenStyles.textInput}
+            style={styles.textInput}
             clearTextOnFocus={true}
           />
           {

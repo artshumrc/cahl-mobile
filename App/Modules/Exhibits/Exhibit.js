@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-import { ExhibitStyles } from './ExhibitsScreenStyles.js';
+import styles from './ExhibitStyles.js';
 
 class Exhibit extends React.Component {
   constructor(props) {
@@ -26,12 +26,12 @@ class Exhibit extends React.Component {
     const { exhibit } = this.props;
     return (
       <View>
-        <Text style={ExhibitStyles.number}>{`${exhibit.number}/265`}</Text>
-        <Image style={ExhibitStyles.image} source={{ uri: exhibit.imageSource }} />
+        <Text style={styles.number}>{`${exhibit.number}/265`}</Text>
+        <Image style={styles.image} source={{ uri: exhibit.imageSource }} />
         <Text>
-          <Text style={ExhibitStyles.description}>{exhibit.description}</Text>
+          <Text style={styles.description}>{exhibit.description}</Text>
           <Text
-            style={ExhibitStyles.showMoreText}
+            style={styles.showMoreText}
             onPress={this.navigateToComments}
           >
             {`  More`}
@@ -39,9 +39,9 @@ class Exhibit extends React.Component {
         </Text>
         <TouchableOpacity
           onPress={this.navigateToComments}
-          style={ExhibitStyles.commentsButton}
+          style={styles.commentsButton}
         >
-          <Text style={ExhibitStyles.commentsButtonText}>View 2 comments</Text>
+          <Text style={styles.commentsButtonText}>View 2 comments</Text>
         </TouchableOpacity>
       </View>
     );

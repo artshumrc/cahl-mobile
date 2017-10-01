@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Story from './Story.js';
 
 // styles
-import { StoriesScreenStyles } from './StoriesScreenStyles';
+import styles from './StoriesScreenStyles';
 
 
 const sampleStory1 = {
@@ -53,18 +53,18 @@ class StoriesScreen extends React.Component {
     const { addStory } = this.state;
     const { navigation } = this.props;
     return (
-      <ScrollView style={StoriesScreenStyles.container}>
-        <View style={StoriesScreenStyles.headerContainer}>
-          <Text style={StoriesScreenStyles.questionText}>What was your personal react to the shootings and media coverage that followed?</Text>
-          <View style={StoriesScreenStyles.submitStory}>
+      <ScrollView style={styles.container}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.questionText}>What was your personal react to the shootings and media coverage that followed?</Text>
+          <View style={styles.submitStory}>
             <TextInput
               value={addStory}
               onChange={(addStory) => this.setState({ addStory })}
-              style={StoriesScreenStyles.textInput}
+              style={styles.textInput}
               clearTextOnFocus={true}
             />
             <TouchableOpacity>
-              <Icon name="plus" style={StoriesScreenStyles.submitIcon} />
+              <Icon name="plus" style={styles.submitIcon} />
             </TouchableOpacity>
           </View>
         </View>

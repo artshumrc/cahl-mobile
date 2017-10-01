@@ -28,52 +28,12 @@ const RoundedButtonStyles = {
   },
 };
 
-const TwitterButtonStyles = StyleSheet.create({
-  button: {
-    ...RoundedButtonStyles.button,
-    backgroundColor: Colors.twitter,
-  },
-  buttonText: {
-    ...RoundedButtonStyles.buttonText,
-  },
-  buttonIcon: {
-    ...RoundedButtonStyles.buttonIcon,
-  },
-});
-
-const GoogleButtonStyles = StyleSheet.create({
-  button: {
-    ...RoundedButtonStyles.button,
-    backgroundColor: Colors.google,
-  },
-  buttonText: {
-    ...RoundedButtonStyles.buttonText,
-  },
-  buttonIcon: {
-    ...RoundedButtonStyles.buttonIcon,
-  },
-});
-
-const FacebookButtonStyles = StyleSheet.create({
-  button: {
-    ...RoundedButtonStyles.button,
-    backgroundColor: Colors.facebook,
-  },
-  buttonText: {
-    ...RoundedButtonStyles.buttonText,
-  },
-  buttonIcon: {
-    ...RoundedButtonStyles.buttonIcon,
-  },
-});
-
-const LoginStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   textBox: {
     marginTop: 100,
     marginBottom: 100,
     alignItems: 'center',
     justifyContent: 'space-around',
-
   },
   title: {
     fontSize: Fonts.size.h2,
@@ -91,6 +51,24 @@ const LoginStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
   },
+  facebookButton: {
+    ...RoundedButtonStyles.button,
+    backgroundColor: Colors.facebook,
+  },
+  googleButton: {
+    ...RoundedButtonStyles.button,
+    backgroundColor: Colors.google,
+  },
+  twitterButton: {
+    ...RoundedButtonStyles.button,
+    backgroundColor: Colors.twitter,
+  },
+  buttonText: {
+    ...RoundedButtonStyles.buttonText,
+  },
+  buttonIcon: {
+    ...RoundedButtonStyles.buttonIcon,
+  },
 });
 
-export { TwitterButtonStyles, GoogleButtonStyles, FacebookButtonStyles, LoginStyles };
+export default styles;

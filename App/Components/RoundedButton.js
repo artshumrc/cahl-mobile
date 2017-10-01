@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const RoundedButton = props => (
-  <TouchableOpacity style={props.buttonStyle.button} onPress={props.onPress}>
-    <Icon name={props.icon} style={props.buttonStyle.buttonIcon} />
-    <Text style={props.buttonStyle.buttonText}>{props.text}</Text>
+  <TouchableOpacity style={props.buttonStyle} onPress={props.onPress}>
+    <Icon name={props.icon} style={props.buttonIconStyle} />
+    <Text style={props.buttonTextStyle}>{props.text}</Text>
   </TouchableOpacity>
 );
 

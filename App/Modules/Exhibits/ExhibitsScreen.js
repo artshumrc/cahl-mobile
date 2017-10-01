@@ -5,7 +5,7 @@ import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
 import Exhibit from './Exhibit.js';
 
 // styles
-import { ExhibitsScreenStyles } from './ExhibitsScreenStyles';
+import styles from './ExhibitsScreenStyles';
 
 const sampleExhibit = {
   _id: '762379bfgfgf4gf',
@@ -42,10 +42,10 @@ class ExhibitsScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollView style={ExhibitsScreenStyles.container}>
-        <View style={ExhibitsScreenStyles.textBox}>
-          <Text style={ExhibitsScreenStyles.title}>Charlie Archive</Text>
-          <Text style={ExhibitsScreenStyles.subtitle}>at the Harvard Library</Text>
+      <ScrollView style={styles.container}>
+        <View style={styles.textBox}>
+          <Text style={styles.title}>Charlie Archive</Text>
+          <Text style={styles.subtitle}>at the Harvard Library</Text>
         </View>
         <View>
           { sampleExhibits.map(exhibit => <Exhibit exhibit={exhibit} navigation={navigation} key={exhibit._id}/>) }

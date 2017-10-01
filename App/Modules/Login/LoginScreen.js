@@ -5,11 +5,7 @@ import { View, ScrollView, Text } from 'react-native';
 import RoundedButton from '../../components/RoundedButton';
 
 // styles
-import {
-  LoginStyles,
-  TwitterButtonStyles,
-  GoogleButtonStyles,
-  FacebookButtonStyles } from './LoginScreenStyles';
+import styles from './LoginScreenStyles';
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -42,29 +38,35 @@ class LoginScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <ScrollView style={LoginStyles.container}>
-        <View style={LoginStyles.textBox}>
-          <Text style={LoginStyles.title}>Charlie Archive</Text>
-          <Text style={LoginStyles.subtitle}>at the Harvard Library</Text>
+      <ScrollView style={styles.container}>
+        <View style={styles.textBox}>
+          <Text style={styles.title}>Charlie Archive</Text>
+          <Text style={styles.subtitle}>at the Harvard Library</Text>
         </View>
-        <View style={LoginStyles.buttonBox}>
+        <View style={styles.buttonBox}>
           <RoundedButton
             onPress={this.handleTwitterSubmit}
             text="Sign in with Twitter"
             icon="twitter"
-            buttonStyle={TwitterButtonStyles}
+            buttonStyle={styles.twitterButton}
+            butonTextStyle={styles.buttonText}
+            buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
             onPress={this.handleFacebookSubmit}
             text="Sign in with Facebook"
             icon="facebook"
-            buttonStyle={FacebookButtonStyles}
+            buttonStyle={styles.facebookButton}
+            butonTextStyle={styles.buttonText}
+            buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
             onPress={this.handleGoogleSubmit}
             text="Sign in with Google"
             icon="google"
-            buttonStyle={GoogleButtonStyles}
+            buttonStyle={styles.googleButton}
+            butonTextStyle={styles.buttonText}
+            buttonIconStyle={styles.buttonIcon}
           />
         </View>
       </ScrollView>

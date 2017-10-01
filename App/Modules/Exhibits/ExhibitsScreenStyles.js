@@ -5,20 +5,6 @@ const ExhibitsScreenStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
   },
-  exhibitImage: {
-    width: Dimensions.get('window').width,
-    height: 500,
-  },
-  exhibitNumber: {
-    marginLeft: 15,
-    fontSize: 16,
-    fontFamily: Fonts.type.ultraLight,
-  },
-  exhibitDescription: {
-    marginLeft: 15,
-    fontSize: 14,
-    fontFamily: Fonts.type.base,
-  },
   commentsButton: {
     marginLeft: 15,
   },
@@ -49,4 +35,34 @@ const ExhibitsScreenStyles = StyleSheet.create({
   },
 });
 
-export default ExhibitsScreenStyles;
+const ExhibitStyles = StyleSheet.create({
+  image: {
+    width: Dimensions.get('window').width,
+    height: 500,
+  },
+  number: {
+    marginLeft: 15,
+    fontSize: 16,
+    fontFamily: Fonts.type.ultraLight,
+  },
+  description: {
+    marginLeft: 15,
+    fontSize: 14,
+    fontFamily: Fonts.type.base,
+  },
+  commentsButton: {
+    marginLeft: 15,
+  },
+  commentsButtonText: {
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+    fontSize: 14,
+  },
+  showMoreText: {
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+    fontSize: 14,
+  },
+});
+
+export { ExhibitsScreenStyles, ExhibitStyles };

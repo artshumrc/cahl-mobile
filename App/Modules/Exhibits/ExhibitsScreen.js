@@ -2,11 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
 
-// styles
-import ExhibitsScreenStyles from './ExhibitsScreenStyles';
+import Exhibit from './Exhibit.js';
 
-const sampleDescription = "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold";
-const sampleLocation = "01/262"
+// styles
+import { ExhibitsScreenStyles } from './ExhibitsScreenStyles';
+
+const sampleExhibit = {
+  description: "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold",
+  number: 1,
+  imageSource: "/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png",
+  comments: ['ajshf', 'djfhjsd']
+}
+
+const sampleExhibits = [sampleExhibit]
 
 class ExhibitsScreen extends React.Component {
   constructor(props) {
@@ -38,31 +46,7 @@ class ExhibitsScreen extends React.Component {
           <Text style={ExhibitsScreenStyles.subtitle}>at the Harvard Library</Text>
         </View>
         <View>
-          <Text style={ExhibitsScreenStyles.exhibitNumber}>{sampleLocation}</Text>
-          <Image
-            style={ExhibitsScreenStyles.exhibitImage}
-            source={{ uri: '/Users/tyler/Archimedes/cahl-mobile/App/Images/#JeSuisCharlie.png' }}
-          />
-          <Text style={{ marginLeft: 15 }}>
-            <Text
-              style={ExhibitsScreenStyles.exhibitDescription}
-              numberOfLines={3}
-            >
-              {sampleDescription}
-            </Text>
-            <Text
-              style={ExhibitsScreenStyles.showMoreText}
-              onPress={this.navigateToComments}
-            >
-              {`  More`}
-            </Text>
-          </Text>
-          <TouchableOpacity
-            onPress={this.navigateToComments}
-            style={ExhibitsScreenStyles.commentsButton}
-          >
-            <Text style={ExhibitsScreenStyles.commentsButtonText}>View 2 comments</Text>
-          </TouchableOpacity>
+          { sampleExhibits.map(exhibit => <Exhibit exhibit={exhibit} />) }
         </View>
       </ScrollView>
     );

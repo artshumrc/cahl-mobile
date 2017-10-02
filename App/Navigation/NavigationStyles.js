@@ -25,9 +25,8 @@ export default StyleSheet.create({
     color: Colors.facebook,
   },
   searchLabel: {
-
+    fontSize: 19,
   },
   languageLabel: {
-    left: 60,
   },
 });

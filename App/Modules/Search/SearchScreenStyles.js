@@ -12,11 +12,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.subtitle,
   },
-  tabLabel: {
-    fontSize: 19,
-    left: 85,
-    bottom: 6,
-  },
   textInput: {
     width: 50,
     height: 10,

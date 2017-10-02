@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Flag from 'react-native-flags';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 // views
 import LoginScreen from '../modules/Login';
@@ -21,23 +22,17 @@ const ExhibitStoriesTabNav = TabNavigator({
   },
   StoriesTab: {
     screen: StoriesScreen,
-    navigationOptions: {
-      labelStyle: styles.storiesLabel,
-    },
   },
   SearchTab: {
     screen: SearchScreen,
-    tabBarOptions: {
-      labelStyle: styles.searchLabel,
+    navigationOptions: {
+      tabBarLabel: <Icon name="search" style={styles.searchLabel} />,
     },
   },
   languageTab: {
     screen: ExhibitsScreen,
-    tabBarOptions: {
-      labelStyle: styles.languageLabel,
-    },
     navigationOptions: {
-      tabBarLabel: <Flag code="FR" size={24} type="shiny" style={{ left: 45, bottom: 4 }} />,
+      tabBarLabel: <Flag code="FR" size={24} type="shiny" style={styles.languageLabel} />,
     },
   },
 }, {

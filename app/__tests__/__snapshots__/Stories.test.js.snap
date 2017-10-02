@@ -139,7 +139,7 @@ exports[`renders correctly 1`] = `
           <Image
             source={
               Object {
-                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/i/IMG_0487.jpg",
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
               }
             }
             style={

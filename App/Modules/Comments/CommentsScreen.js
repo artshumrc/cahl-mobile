@@ -37,6 +37,7 @@ class CommentsScreen extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.login = this.login.bind(this);
   }
 
   static navigationOptions = {
@@ -49,7 +50,7 @@ class CommentsScreen extends React.Component {
 
   login() {
     const { navigate } = this.props.navigation;
-    navigate('Login');
+    navigate('LoginScreen');
   }
 
   render() {
@@ -79,19 +80,10 @@ class CommentsScreen extends React.Component {
             style={styles.textInput}
             clearTextOnFocus={true}
           />
-          {
-            loggedIn ?
-              <Button
-                title={'Post'}
-                onPress={this.handleSubmit}
-              />
-              :
-              <Button
-                title={'Sign in'}
-                onPress={this.login}
-              />
-          }
-
+          <Button
+            title={'Sign in'}
+            onPress={this.login}
+          />
         </View>
       </View>
 

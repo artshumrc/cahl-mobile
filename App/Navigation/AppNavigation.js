@@ -56,7 +56,6 @@ const PrimaryNav = StackNavigator({
       header: null,
     },
   },
-  ExhibitsScreen: { screen: ExhibitsScreen },
   CommentsScreen: { screen: CommentsScreen },
   LoginScreen: { screen: LoginScreen },
 }, {

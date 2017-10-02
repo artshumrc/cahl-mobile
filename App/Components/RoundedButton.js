@@ -11,13 +11,6 @@ const RoundedButton = props => (
   </TouchableOpacity>
 );
 
-RoundedButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  text: PropTypes.string,
-  buttonStyle: PropTypes.object.isRequired,
-  icon: PropTypes.string,
-};
-
 RoundedButton.defaultProps = {
   text: '',
   icon: '',

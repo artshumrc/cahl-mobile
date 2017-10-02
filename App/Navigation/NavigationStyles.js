@@ -7,7 +7,6 @@ export default StyleSheet.create({
   },
   tabHeader: {
     backgroundColor: Colors.white,
-    color: Colors.subtitle,
     height: 80,
     borderBottomWidth: 1,
     borderBottomColor: Colors.subtitle,

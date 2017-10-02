@@ -37,6 +37,7 @@ class LoginScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    console.log(this.props);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>
@@ -45,7 +46,7 @@ class LoginScreen extends React.Component {
         </View>
         <View style={styles.buttonBox}>
           <RoundedButton
-            onPress={this.handleTwitterSubmit}
+            onPress={() => this.handleTwitterSubmit}
             text="Sign in with Twitter"
             icon="twitter"
             buttonStyle={styles.twitterButton}
@@ -53,7 +54,7 @@ class LoginScreen extends React.Component {
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
-            onPress={this.handleFacebookSubmit}
+            onPress={() => this.handleFacebookSubmit}
             text="Sign in with Facebook"
             icon="facebook"
             buttonStyle={styles.facebookButton}
@@ -61,7 +62,7 @@ class LoginScreen extends React.Component {
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
-            onPress={this.handleGoogleSubmit}
+            onPress={() => this.handleGoogleSubmit}
             text="Sign in with Google"
             icon="google"
             buttonStyle={styles.googleButton}

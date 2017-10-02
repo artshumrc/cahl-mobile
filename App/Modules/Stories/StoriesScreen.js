@@ -13,7 +13,7 @@ const sampleStory1 = {
   _id: 'sdhfjsdfjkjh7634723',
   name: 'Tyler Kirby',
   text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
-  profileImg: '/Users/tyler/Archimedes/cahl-mobile/App/i/IMG_0487.jpg',
+  profileImg: '/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg',
   storyImg: '/Users/tyler/Archimedes/cahl-mobile/App/images/fabien b 65.png',
   comments: ['1 comment', '2 comment', '3 Comment'],
   date: 'October 1, 2017'

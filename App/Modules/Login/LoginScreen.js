@@ -48,7 +48,7 @@ class LoginScreen extends React.Component {
             text="Sign in with Twitter"
             icon="twitter"
             buttonStyle={styles.twitterButton}
-            butonTextStyle={styles.buttonText}
+            buttonTextStyle={styles.buttonText}
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
@@ -56,7 +56,7 @@ class LoginScreen extends React.Component {
             text="Sign in with Facebook"
             icon="facebook"
             buttonStyle={styles.facebookButton}
-            butonTextStyle={styles.buttonText}
+            buttonTextStyle={styles.buttonText}
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
@@ -64,7 +64,7 @@ class LoginScreen extends React.Component {
             text="Sign in with Google"
             icon="google"
             buttonStyle={styles.googleButton}
-            butonTextStyle={styles.buttonText}
+            buttonTextStyle={styles.buttonText}
             buttonIconStyle={styles.buttonIcon}
           />
         </View>

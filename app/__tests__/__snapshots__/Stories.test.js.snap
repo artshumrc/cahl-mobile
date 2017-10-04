@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "paddingBottom": 75,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "fontFamily": "AvenirNext-regular",
+            "fontSize": 20,
+            "marginLeft": 15,
+            "marginRight": 15,
+            "marginTop": 100,
+          }
+        }
+      >
+        What was your personal react to the shootings and media coverage that followed?
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#999999",
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "marginBottom": 10,
+            "marginLeft": 15,
+            "marginRight": 15,
+            "marginTop": 10,
+          }
+        }
+      >
+        <TextInput
+          clearTextOnFocus={true}
+          onChange={[Function]}
+          style={
+            Object {
+              "color": "#999999",
+              "fontSize": 14,
+              "height": 25,
+              "marginBottom": 10,
+              "marginTop": 10,
+              "width": 333,
+            }
+          }
+          value="Share your story"
+        />
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#999999",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "borderBottomColor": "#999999",
+            "borderBottomWidth": 1,
+            "paddingBottom": 15,
+            "paddingTop": 15,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "marginLeft": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 15,
+                "height": 30,
+                "marginRight": 5,
+                "width": 30,
+              }
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "AvenirNext-demibold",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Tyler Kirby
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                  "fontSize": 12,
+                }
+              }
+            >
+              October 1, 2017
+            </Text>
+          </View>
+        </View>
+        <View>
+          <Image
+            source={
+              Object {
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/fabien b 65.png",
+              }
+            }
+            style={
+              Object {
+                "height": 200,
+                "width": 750,
+              }
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "AvenirNext-regular",
+                "fontSize": 14,
+                "marginLeft": 15,
+                "marginRight": 15,
+                "marginTop": 10,
+              }
+            }
+          >
+            Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.
+          </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "marginLeft": 15,
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                  "fontSize": 14,
+                }
+              }
+            >
+              View 3 comments
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "borderBottomColor": "#999999",
+            "borderBottomWidth": 1,
+            "paddingBottom": 15,
+            "paddingTop": 15,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "marginLeft": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 15,
+                "height": 30,
+                "marginRight": 5,
+                "width": 30,
+              }
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "AvenirNext-demibold",
+                  "fontSize": 14,
+                }
+              }
+            >
+              Tyler Kirby
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                  "fontSize": 12,
+                }
+              }
+            >
+              October 2, 2017
+            </Text>
+          </View>
+        </View>
+        <View>
+          <View />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "AvenirNext-regular",
+                "fontSize": 14,
+                "marginLeft": 15,
+                "marginRight": 15,
+                "marginTop": 10,
+              }
+            }
+          >
+            Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.
+          </Text>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "marginLeft": 15,
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                  "fontSize": 14,
+                }
+              }
+            >
+              View 2 comments
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

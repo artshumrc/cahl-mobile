@@ -1,28 +1,15 @@
-import '../Config'
-import React, { Component } from 'react'
-import RootContainer from './RootContainer'
-import Meteor from 'react-native-meteor'
+import '../config';
+import React from 'react';
+import { ApolloClient, ApolloProvider } from 'react-apollo';
 
+import RootContainer from './RootContainer';
 
-/**
- * Provides an entry point into our application.  Both index.ios.js and index.android.js
- * call this component first.
- *
- * We create our Redux store here, put it into a provider and then bring in our
- * RootContainer.
- *
- * We separate like this to play nice with React Native's hot reloading.
- */
+const client = new ApolloClient();
 
-Meteor.connect('ws://localhost:3000/websocket')
+const App = () => (
+  <ApolloProvider client={client}>
+    <RootContainer />
+  </ApolloProvider>
+);
 
-class App extends Component {
-  render () {
-    return (
-      <RootContainer />
-    )
-  }
-}
-
-// allow reactotron overlay for fast design in dev mode
-export default App
+export default App;

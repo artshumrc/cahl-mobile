@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 25,
+                "height": 50,
+                "margin": 10,
+                "width": 50,
+              }
+            }
+          />
+          <View>
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginTop": 10,
+                  "width": 300,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                disabled={false}
+                ellipsizeMode="tail"
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "fontFamily": "AvenirNext-bold",
+                    }
+                  }
+                >
+                  Tyler Kirby  
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "fontFamily": "AvenirNext-regular",
+                    }
+                  }
+                >
+                  Consectetur culpa amet sint non tempor labore commodo ex in labore in minim officia laborum. Ullamco nulla magna duis dolore incididunt incididunt aute eu aliquip ex aliqua amet magna.
+                </Text>
+              </Text>
+            </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                }
+              }
+            >
+              July 26, 2017
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 25,
+                "height": 50,
+                "margin": 10,
+                "width": 50,
+              }
+            }
+          />
+          <View>
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                  "marginTop": 10,
+                  "width": 300,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                disabled={false}
+                ellipsizeMode="tail"
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "fontFamily": "AvenirNext-bold",
+                    }
+                  }
+                >
+                  Tyler Kirby  
+                </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "fontFamily": "AvenirNext-regular",
+                    }
+                  }
+                >
+                  Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.
+                </Text>
+              </Text>
+            </View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontFamily": "AvenirNext-regular",
+                }
+              }
+            >
+              July 29, 2017
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "padding": 10,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "/Users/tyler/Archimedes/cahl-mobile/App/images/IMG_0487.jpg",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 15,
+          "height": 30,
+          "marginRight": 10,
+          "width": 30,
+        }
+      }
+    />
+    <TextInput
+      clearTextOnFocus={true}
+      onChange={[Function]}
+      style={
+        Object {
+          "color": "#999999",
+          "height": 40,
+          "width": 250,
+        }
+      }
+      value="Add your comment."
+    />
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Sign in
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,20 +1,28 @@
-import { StackNavigator } from 'react-navigation'
-import LaunchScreen from '../Containers/LaunchScreen'
-import LoginScreen from '../Containers/LoginScreen'
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 
-import styles from './Styles/NavigationStyles'
+import CustomTabs from './CustomTabs';
 
-// Manifest of possible screens
+// views
+import LoginScreen from '../modules/Login';
+import CommentsScreen from '../modules/Comments';
+
+// styles
+import styles from './NavigationStyles';
+
 const PrimaryNav = StackNavigator({
-  LaunchScreen: { screen: LaunchScreen },
-  LoginScreen: { screen: LoginScreen, navigationOptions: {title: 'Login'} }
+  Root: {
+    screen: CustomTabs,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  CommentsScreen: { screen: CommentsScreen },
+  LoginScreen: { screen: LoginScreen },
 }, {
-  // Default config for all screens
-  headerMode: 'screen',
-  initialRouteName: 'LoginScreen',
   navigationOptions: {
-    headerStyle: styles.header
-  }
-})
+    headerStyle: styles.header,
+  },
+});
 
-export default PrimaryNav
+export default PrimaryNav;

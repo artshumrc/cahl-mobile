@@ -1,0 +1,14 @@
+{
+    "extends": "airbnb",
+    "rules": {
+      "jsx-a11y/href-no-hash": "off",
+      "global-require": "off",
+      "react/forbid-prop-types": "off",
+      "react/jsx-filename-extension": "off",
+      "import/extensions": "off",
+      "max-len": "off",
+      "class-methods-use-this": "off",
+      "import/no-named-as-default": "off",
+      "import/no-named-as-default-member": "off"
+    }
+}

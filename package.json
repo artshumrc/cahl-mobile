@@ -33,14 +33,14 @@
     "ramda": "^0.24.1",
     "react": "16.0.0-alpha.12",
     "react-apollo": "^1.4.16",
-    "react-native": "^0.45.1",
+    "react-native": "0.48.4",
     "react-native-animatable": "^1.2.2",
     "react-native-config": "^0.2.1",
     "react-native-device-info": "^0.10.0",
     "react-native-drawer": "^2.3.0",
     "react-native-flags": "^1.0.0",
     "react-native-i18n": "1.0.0",
-    "react-native-vector-icons": "4.1.1",
+    "react-native-vector-icons": "^4.1.1",
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
@@ -103,6 +103,11 @@
       "XMLHttpRequest",
       "FormData",
       "React$Element"
+    ]
+  },
+  "rnpm": {
+    "assets": [
+      "assets"
     ]
   }
 }

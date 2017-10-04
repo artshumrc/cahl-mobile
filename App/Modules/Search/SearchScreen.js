@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { ScrollView, View, Text, TextInput } from 'react-native';
 
 
 // styles
@@ -10,7 +10,7 @@ class SearchScreen extends React.Component {
     super(props);
 
     this.state = {
-      exhibitNumber: '- - -',
+      exhibitNumber: '',
     };
   }
 
@@ -24,7 +24,9 @@ class SearchScreen extends React.Component {
           onChange={exhibitNumber => this.setState({ exhibitNumber })}
           keyboardType="number-pad"
           style={styles.textInput}
-          clearTextOnFocus={true}
+          autoFocus
+          textAlign={'center'}
+          returnKeyType={'go'}
         />
       </View>
     );

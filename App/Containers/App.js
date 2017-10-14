@@ -1,4 +1,3 @@
-import '../config';
 import React from 'react';
 import { ApolloClient, ApolloProvider } from 'react-apollo';
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import Exhibit from './Exhibit.js';
 
@@ -32,6 +34,10 @@ class ExhibitsScreen extends React.Component {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
+    data: PropTypes.shape({
+      loading: PropTypes.bool.isRequired,
+      exhibits: PropTypes.object,
+    }).isRequired,
   }
 
   navigateToComments() {
@@ -41,6 +47,7 @@ class ExhibitsScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
+    console.log(this.props);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>
@@ -55,4 +62,13 @@ class ExhibitsScreen extends React.Component {
   }
 }
 
-export default ExhibitsScreen;
+const getExhibits = gql`
+  query HULItems {
+    HULItems {
+      pagination,
+      items
+    }
+  }
+`
+
+export default graphql(getExhibits)(ExhibitsScreen);

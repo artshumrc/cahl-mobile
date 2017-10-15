@@ -46,7 +46,8 @@ class ExhibitsScreen extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, data } = this.props;
+    const totalNumberOfItems = data.HULItems.pagination.numFound;
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>
@@ -54,7 +55,15 @@ class ExhibitsScreen extends React.Component {
           <Text style={styles.subtitle}>at the Harvard Library</Text>
         </View>
         <View>
-          { sampleExhibits.map(exhibit => <Exhibit exhibit={exhibit} navigation={navigation} key={exhibit._id}/>) }
+          {
+            sampleExhibits.map(exhibit =>
+            <Exhibit
+              exhibit={exhibit}
+              navigation={navigation}
+              key={exhibit._id}
+              totalNumberOfItems={totalNumberOfItems}
+            />)
+          }
         </View>
       </ScrollView>
     );

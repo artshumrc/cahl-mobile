@@ -23,10 +23,10 @@ class Exhibit extends React.Component {
   }
 
   render() {
-    const { exhibit } = this.props;
+    const { exhibit, totalNumberOfItems } = this.props;
     return (
       <View>
-        <Text style={styles.number}>{`${exhibit.number}/265`}</Text>
+        <Text style={styles.number}>{`${exhibit.number}/${totalNumberOfItems}`}</Text>
         <Image style={styles.image} source={{ uri: exhibit.imageSource }} />
         <Text>
           <Text style={styles.description}>{exhibit.description}</Text>

@@ -47,7 +47,6 @@ class ExhibitsScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    console.log(this.props);
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>

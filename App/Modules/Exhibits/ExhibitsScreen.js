@@ -47,7 +47,18 @@ class ExhibitsScreen extends React.Component {
 
   render() {
     const { navigation, data } = this.props;
+
+    if (data.loading) {
+      return (
+        <View>
+          <Text style={styles.title}>Loading...</Text>
+        </View>
+      )
+    }
+
     const totalNumberOfItems = data.HULItems.pagination.numFound;
+    const exhibits = data.HULItems.items.mods;
+
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>
@@ -56,12 +67,14 @@ class ExhibitsScreen extends React.Component {
         </View>
         <View>
           {
-            sampleExhibits.map(exhibit =>
+            exhibits.map(exhibit =>
             <Exhibit
-              exhibit={exhibit}
+              exhibitNumber={exhibits.indexOf(exhibit) + 1}
               navigation={navigation}
-              key={exhibit._id}
+              key={exhibit.recordInfo.recordIdentifier['#text']}
               totalNumberOfItems={totalNumberOfItems}
+              imageSource={exhibit.relatedItem.location[0].url[0]['#text']}
+              description={exhibit.subject.topic}
             />)
           }
         </View>

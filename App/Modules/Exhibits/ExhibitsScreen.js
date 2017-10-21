@@ -84,12 +84,12 @@ class ExhibitsScreen extends React.Component {
 }
 
 const getExhibits = gql`
-  query HULItems {
-    HULItems {
-      pagination,
-      items
-    }
+query {
+  HULItems(start: 1, limit: 30) {
+    pagination,
+    items
   }
+}
 `
 
 export default graphql(getExhibits)(ExhibitsScreen);

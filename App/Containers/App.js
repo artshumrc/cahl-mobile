@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import RootContainer from './RootContainer';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'http://api.cahl.orphe.us/graphql',
 });
 const client = new ApolloClient({
   networkInterface,

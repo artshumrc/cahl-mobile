@@ -9,16 +9,6 @@ import Exhibit from './Exhibit.js';
 // styles
 import styles from './ExhibitsScreenStyles';
 
-const sampleExhibit = {
-  _id: '762379bfgfgf4gf',
-  description: "A brief description might accompany the piece to describe it's meaning. If it is longer than three lines, the description would fold fold fold fold fold fold fold fold fold fold fold fold",
-  number: 1,
-  imageSource: "/Users/tyler/Archimedes/cahl-mobile/App/images/#JeSuisCharlie.png",
-  comments: ['ajshf', 'djfhjsd']
-}
-
-const sampleExhibits = [sampleExhibit]
-
 class ExhibitsScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -46,46 +36,49 @@ class ExhibitsScreen extends React.Component {
   }
 
   render() {
-    const { navigation, data } = this.props;
+    const { navigation, data: { loading, error, HULItems } } = this.props;
 
-    if (data.loading) {
+    if (loading) {
       return (
-        <View>
-          <Text style={styles.title}>Loading...</Text>
-        </View>
+        <Text style={styles.title}>Loading...</Text>
       )
+    } else if (error) {
+      console.log(error)
+      return (
+        <Text style={styles.title}>Error</Text>
+      )
+    } else {
+      const totalNumberOfItems = HULItems.pagination.numFound;
+      const exhibits = HULItems.items.mods;
+
+      return (
+        <ScrollView style={styles.container}>
+          <View style={styles.textBox}>
+            <Text style={styles.title}>Charlie Archive</Text>
+            <Text style={styles.subtitle}>at the Harvard Library</Text>
+          </View>
+          <View>
+            {
+              exhibits.map(exhibit =>
+              <Exhibit
+                exhibitNumber={exhibits.indexOf(exhibit) + 1}
+                navigation={navigation}
+                key={exhibit.recordInfo.recordIdentifier['#text']}
+                totalNumberOfItems={totalNumberOfItems}
+                imageSource={exhibit.relatedItem.location[0].url[0]['#text']}
+                description={exhibit.subject.topic}
+              />)
+            }
+          </View>
+        </ScrollView>
+      );
     }
-
-    const totalNumberOfItems = data.HULItems.pagination.numFound;
-    const exhibits = data.HULItems.items.mods;
-
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.textBox}>
-          <Text style={styles.title}>Charlie Archive</Text>
-          <Text style={styles.subtitle}>at the Harvard Library</Text>
-        </View>
-        <View>
-          {
-            exhibits.map(exhibit =>
-            <Exhibit
-              exhibitNumber={exhibits.indexOf(exhibit) + 1}
-              navigation={navigation}
-              key={exhibit.recordInfo.recordIdentifier['#text']}
-              totalNumberOfItems={totalNumberOfItems}
-              imageSource={exhibit.relatedItem.location[0].url[0]['#text']}
-              description={exhibit.subject.topic}
-            />)
-          }
-        </View>
-      </ScrollView>
-    );
   }
 }
 
 const getExhibits = gql`
 query {
-  HULItems(start: 1, limit: 30) {
+  HULItems {
     pagination,
     items
   }

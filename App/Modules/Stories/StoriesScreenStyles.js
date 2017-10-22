@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { Fonts, Colors } from '../../themes';
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: 333,
-    height: 25,
+    height: (Platform.OS === 'ios') ? 25 : 40,
     color: Colors.subtitle,
     fontSize: 14,
     marginTop: 10,

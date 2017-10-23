@@ -30,7 +30,9 @@ class Exhibit extends React.Component {
     return (
       <View>
         <Text style={styles.number}>{`${exhibitNumber}/${totalNumberOfItems}`}</Text>
-        <Image style={styles.image} source={{ uri: imageSource }} />
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Image style={styles.image} resizeMode="contain" source={{ uri: imageSource }} />
+        </View>
         <Text>
           <Text style={styles.description}>{description}</Text>
           <Text

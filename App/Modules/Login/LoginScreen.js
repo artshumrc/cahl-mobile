@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
+import FBSDK, { LoginManager } from 'react-native-fbsdk'
 
 // components
 import RoundedButton from '../../components/RoundedButton';
@@ -19,6 +20,22 @@ class LoginScreen extends React.Component {
   static navigationOptions = {
     title: 'Sign In'
   }
+
+  _fbAuth() {
+    LoginManager.logInWithReadPermissions(['public_profile']).then(
+       function(result) {
+          if (result.isCancelled) {
+             alert('Login cancelled');
+          } else {
+             alert('Login success with permissions: '
+             +result.grantedPermissions.toString());
+          }
+       },
+       function(error) {
+          alert('Login fail with error: ' + error);
+       }
+    );
+ }
 
   handleTwitterSubmit() {
     const { navigate } = this.props.navigation;
@@ -52,7 +69,7 @@ class LoginScreen extends React.Component {
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
-            onPress={() => this.handleFacebookSubmit}
+            onPress={this._fbAuth}
             text="Sign in with Facebook"
             icon="facebook"
             buttonStyle={styles.facebookButton}

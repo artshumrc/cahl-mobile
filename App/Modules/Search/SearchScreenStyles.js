@@ -22,6 +22,30 @@ const styles = StyleSheet.create({
     fontSize: Fonts.size.h1,
     fontFamily: Fonts.type.bold,
   },
+  button: {
+    backgroundColor: '#5A90DC',
+    height: 50,
+    width: Dimensions.get('window').width,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: Colors.white,
+    fontFamily: Fonts.type.bold,
+    fontSize: 18,
+  },
+  buttonNotReady: {
+    backgroundColor: '#D0D0D0',
+    height: 50,
+    width: Dimensions.get('window').width,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonTextNotReady: {
+    color: Colors.subtitle,
+    fontFamily: Fonts.type.bold,
+    fontSize: 18,
+  },
 });
 
 export default styles;

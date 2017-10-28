@@ -6,6 +6,8 @@ exports[`renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#FFF",
+      "height": 1334,
+      "width": 750,
     }
   }
 >
@@ -19,22 +21,74 @@ exports[`renders correctly 1`] = `
         "color": "#999999",
         "fontFamily": "AvenirNext-regular",
         "fontSize": 20,
+        "paddingTop": 200,
       }
     }
   >
     Enter an item number
   </Text>
   <TextInput
-    clearTextOnFocus={true}
-    keyboardType="number-pad"
+    autoFocus={true}
+    keyboardType="numeric"
+    maxLength={3}
     onChange={[Function]}
+    returnKeyType="search"
     style={
       Object {
-        "height": 10,
-        "width": 50,
+        "alignSelf": "center",
+        "fontFamily": "AvenirNext-bold",
+        "fontSize": 38,
+        "height": 100,
+        "width": 300,
       }
     }
-    value="- - -"
+    textAlign="center"
+    value=""
   />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#D0D0D0",
+        "height": 50,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 750,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#999999",
+          "fontFamily": "AvenirNext-bold",
+          "fontSize": 18,
+        }
+      }
+    >
+      View Item
+    </Text>
+  </View>
 </View>
 `;

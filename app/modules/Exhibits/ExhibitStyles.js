@@ -3,7 +3,7 @@ import { Colors, Fonts } from '../../themes';
 
 const styles = StyleSheet.create({
   image: {
-    width: Dimensions.get('window').width,
+    width: 500,
     height: 500,
   },
   number: {

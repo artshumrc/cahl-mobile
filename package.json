@@ -27,6 +27,7 @@
   "dependencies": {
     "apisauce": "^0.14.0",
     "apollo-client": "^1.9.3",
+    "firebase": "^4.6.0",
     "format-json": "^1.0.3",
     "lodash": "^4.17.2",
     "prop-types": "^15.5.10",

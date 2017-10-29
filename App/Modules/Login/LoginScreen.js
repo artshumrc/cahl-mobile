@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
-import FBSDK, { LoginManager } from 'react-native-fbsdk'
+import FBSDK, { LoginManager, AccessToken } from 'react-native-fbsdk';
+import firebase from 'firebase';
 
 // components
 import RoundedButton from '../../components/RoundedButton';
 
 // styles
 import styles from './LoginScreenStyles';
+
+const config = {
+  apiKey: 'AIzaSyA9T3ymeQYY7ri8Ut-sAds9KsD3bQ_kYmE',
+  authDomain: 'cahl-mobile.firebaseapp.com/',
+  databaseUrl: 'https://cahl-mobile.firebaseio.com/'
+}
+
+const firebaseRef = firebase.initializeApp(config);
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -21,22 +30,21 @@ class LoginScreen extends React.Component {
     title: 'Sign In'
   }
 
-  _fbAuth() {
-    LoginManager.logInWithReadPermissions(['public_profile']).then(
-       function(result) {
-         console.log(result)
-          if (result.isCancelled) {
-             alert('Login cancelled');
-          } else {
-             alert('Login success with permissions: '
-             +result.grantedPermissions.toString());
-          }
-       },
-       function(error) {
-          alert('Login fail with error: ' + error);
-       }
-    );
- }
+  facebookAuth() {
+    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(result => {
+      if (result.isCancelled) {
+        alert('Login cancelled');
+      } else {
+        AccessToken.getCurrentAccessToken().then(accessTokenData => {
+          const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken);
+          firebase.auth().signInWithCredential(credential).then(result => {
+            console.log(result)
+          }, error => console.log(error));
+        }, error => console.log(error));
+      }
+    },
+    error => alert('Login fail with error: ' + error));
+  }
 
   handleTwitterSubmit() {
     const { navigate } = this.props.navigation;
@@ -45,7 +53,7 @@ class LoginScreen extends React.Component {
 
   handleFacebookSubmit() {
     const { navigate } = this.props.navigation;
-    this._fbAuth();
+    this.facebookAuth();
     navigate('CommentsScreen');
   }
 

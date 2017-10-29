@@ -24,6 +24,7 @@ class LoginScreen extends React.Component {
   _fbAuth() {
     LoginManager.logInWithReadPermissions(['public_profile']).then(
        function(result) {
+         console.log(result)
           if (result.isCancelled) {
              alert('Login cancelled');
           } else {
@@ -44,6 +45,7 @@ class LoginScreen extends React.Component {
 
   handleFacebookSubmit() {
     const { navigate } = this.props.navigation;
+    this._fbAuth();
     navigate('CommentsScreen');
   }
 
@@ -69,7 +71,7 @@ class LoginScreen extends React.Component {
             buttonIconStyle={styles.buttonIcon}
           />
           <RoundedButton
-            onPress={this._fbAuth}
+            onPress={this.handleFacebookSubmit}
             text="Sign in with Facebook"
             icon="facebook"
             buttonStyle={styles.facebookButton}

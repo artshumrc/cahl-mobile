@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text, TextInput, Image, Button } from 'react-native';
+import firebase from 'firebase';
 
 import Comment from './Comment';
 
@@ -25,7 +26,7 @@ const testComment2 = {
   }
 }
 
-const testComments = [testComment1, testComment2]
+const testComments = [testComment1, testComment2];
 
 class CommentsScreen extends React.Component {
   constructor(props) {

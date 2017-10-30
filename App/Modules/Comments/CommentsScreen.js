@@ -53,6 +53,7 @@ class CommentsScreen extends React.Component {
 
   post() {
     console.log('success!')
+    alert('Comments are made public upon posting!');
   }
 
   render() {

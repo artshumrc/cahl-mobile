@@ -25,8 +25,6 @@ class Exhibit extends React.Component {
   render() {
     const { totalNumberOfItems, exhibitNumber, imageSource, description } = this.props;
 
-    console.log(this.props.imageSource)
-
     return (
       <View>
         <Text style={styles.number}>{`${exhibitNumber}/${totalNumberOfItems}`}</Text>

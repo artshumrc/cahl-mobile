@@ -33,15 +33,7 @@ class Exhibit extends React.Component {
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Image style={styles.image} resizeMode="contain" source={{ uri: imageSource }} />
         </View>
-        <Text>
-          <Text style={styles.description}>{description}</Text>
-          <Text
-            style={styles.showMoreText}
-            onPress={this.navigateToComments}
-          >
-            {`  More`}
-          </Text>
-        </Text>
+        <Text style={styles.description}>{description}</Text>
         <TouchableOpacity
           onPress={this.navigateToComments}
           style={styles.commentsButton}

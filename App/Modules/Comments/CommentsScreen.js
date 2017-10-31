@@ -1,34 +1,15 @@
 import React from 'react';
-import { View, ScrollView, TextInput, Image, Button } from 'react-native';
+import { View, ScrollView, TextInput, Image, Button, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import firebase from 'firebase';
 
+// components
 import Comment from './Comment';
 
+
+// styles
 import styles from './CommentsScreenStyles';
-
-const testComment1 = {
-  _id: "hgfygu34573eiurgsdbf",
-  name: 'Tyler Kirby',
-  text: 'Consectetur culpa amet sint non tempor labore commodo ex in labore in minim officia laborum. Ullamco nulla magna duis dolore incididunt incididunt aute eu aliquip ex aliqua amet magna.',
-  date: 'July 26, 2017',
-  img: {
-    src: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/20799473_1646822218670552_3001965826470328790_n.jpg?oh=1dd91bbffa17aa3b2c6a84b6fd39423a&oe=5AA608F1',
-  }
-}
-
-const testComment2 = {
-  _id: "7238fdjsgfurgsdbf",
-  name: 'Tyler Kirby',
-  text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
-  date: 'July 29, 2017',
-  img: {
-    src: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/20799473_1646822218670552_3001965826470328790_n.jpg?oh=1dd91bbffa17aa3b2c6a84b6fd39423a&oe=5AA608F1',
-  }
-}
-
-const testComments = [testComment1, testComment2];
 
 class CommentsScreen extends React.Component {
   constructor(props) {
@@ -58,20 +39,28 @@ class CommentsScreen extends React.Component {
 
   render() {
     const { addComment, currentUser } = this.state;
-    console.log(currentUser);
+    const { data } = this.props;
+
     return (
       <View style={styles.container}>
         <ScrollView>
-          <View>
-            {
-              testComments.map(comment =>
-                <Comment
-                  key={comment._id}
-                  comment={comment}
-                />
-              )
-            }
-          </View>
+          {
+            data.comments && data.comments.length > 0 ?
+              <View>
+                {
+                  data.comments.map(comment =>
+                    <Comment
+                      key={comment._id}
+                      comment={comment}
+                    />
+                  )
+                }
+              </View>
+              :
+              <View>
+                <Text>No comments available.</Text>
+              </View>
+          }
         </ScrollView>
         <View style={styles.textInputContainer}>
           {
@@ -111,7 +100,7 @@ query getComments($itemId: String!) {
   comments(itemId: $itemId) {
     content,
     createdAt,
-    displayName,
+    userDisplayName,
     photoURL
   }
 }

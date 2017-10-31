@@ -52,7 +52,7 @@ class CommentsScreen extends React.Component {
   }
 
   post() {
-    console.log('success!')
+    console.log('success!');
     alert('Comments are made public upon posting!');
   }
 
@@ -107,9 +107,12 @@ class CommentsScreen extends React.Component {
 }
 
 const getComments = gql`
-query getComments($recordIdentifier: String!) {
-  HULItem(recordIdentifier: $recordIdentifier) {
-    items
+query getComments($itemId: String!) {
+  comments(itemId: $itemId) {
+    content,
+    createdAt,
+    displayName,
+    photoURL
   }
 }
 `;
@@ -117,7 +120,7 @@ query getComments($recordIdentifier: String!) {
 export default graphql(getComments, {
   options: ownProps => ({
     variables: {
-      recordIdentifier: ownProps.navigation.state.params.recordId,
+      itemId: ownProps.navigation.state.params.recordId,
     }
   })
 })(CommentsScreen);

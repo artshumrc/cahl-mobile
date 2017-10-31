@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, ScrollView, Text, TextInput, Image, Button } from 'react-native';
+import { View, ScrollView, TextInput, Image, Button } from 'react-native';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import firebase from 'firebase';
 
 import Comment from './Comment';
@@ -34,17 +36,15 @@ class CommentsScreen extends React.Component {
 
     this.state = {
       addComment: 'Add your comment.',
-      loggedIn: false,
       currentUser: firebase.auth().currentUser,
-    }
+    };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this);
   }
 
   static navigationOptions = {
     title: 'Comments'
-  }
+  };
 
   login() {
     const { navigate } = this.props.navigation;
@@ -57,8 +57,8 @@ class CommentsScreen extends React.Component {
   }
 
   render() {
-    const { addComment, loggedIn, currentUser } = this.state;
-    console.log(currentUser)
+    const { addComment, currentUser } = this.state;
+    console.log(currentUser);
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -106,4 +106,18 @@ class CommentsScreen extends React.Component {
   }
 }
 
-export default CommentsScreen;
+const getComments = gql`
+query getComments($recordIdentifier: String!) {
+  HULItem(recordIdentifier: $recordIdentifier) {
+    items
+  }
+}
+`;
+
+export default graphql(getComments, {
+  options: ownProps => ({
+    variables: {
+      recordIdentifier: ownProps.navigation.state.params.recordId,
+    }
+  })
+})(CommentsScreen);

@@ -15,16 +15,16 @@ class Exhibit extends React.Component {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
-  }
+  };
 
   navigateToComments() {
+    const { recordId }= this.props;
     const { navigate } = this.props.navigation;
-    navigate('CommentsScreen');
+    navigate('CommentsScreen', { recordId });
   }
 
   render() {
     const { totalNumberOfItems, exhibitNumber, imageSource, description } = this.props;
-
     return (
       <View>
         <Text style={styles.number}>{`${exhibitNumber}/${totalNumberOfItems}`}</Text>

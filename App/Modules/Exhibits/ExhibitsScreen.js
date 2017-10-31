@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -60,14 +60,16 @@ class ExhibitsScreen extends React.Component {
           <View>
             {
               exhibits.map(exhibit =>
-              <Exhibit
-                exhibitNumber={exhibits.indexOf(exhibit) + 1}
-                navigation={navigation}
-                key={exhibit.recordInfo.recordIdentifier['#text']}
-                totalNumberOfItems={totalNumberOfItems}
-                imageSource={exhibit.relatedItem.location[0].url[0]['#text']}
-                description={exhibit.subject.topic}
-              />)
+                <Exhibit
+                  exhibitNumber={exhibits.indexOf(exhibit) + 1}
+                  navigation={navigation}
+                  key={exhibit.recordInfo.recordIdentifier['#text']}
+                  totalNumberOfItems={totalNumberOfItems}
+                  imageSource={exhibit.relatedItem.location[0].url[0]['#text']}
+                  description={exhibit.subject.topic}
+                  recordId={exhibit.recordInfo.recordIdentifier['#text']}
+                />
+              )
             }
           </View>
         </ScrollView>
@@ -83,6 +85,6 @@ query {
     items
   }
 }
-`
+`;
 
 export default graphql(getExhibits)(ExhibitsScreen);

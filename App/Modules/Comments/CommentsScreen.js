@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView, TextInput, Image, Button, Text } from 'react-native';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import firebase from 'firebase';
 
@@ -16,10 +16,11 @@ class CommentsScreen extends React.Component {
     super(props);
 
     this.state = {
-      addComment: 'Add your comment.',
+      content: 'Add your comment.',
       currentUser: firebase.auth().currentUser,
     };
 
+    this.post = this.post.bind(this);
     this.login = this.login.bind(this);
   }
 
@@ -33,12 +34,23 @@ class CommentsScreen extends React.Component {
   }
 
   post() {
-    console.log('success!');
+    const { mutate, navigation } = this.props;
+    const { currentUser, content } = this.state;
+
     alert('Comments are made public upon posting!');
+
+    mutate({
+      variables: {
+        itemId: navigation.state.params.recordId,
+        userDisplayName: currentUser.displayName,
+        content: content,
+      }
+    }).then(({ data }) => console.log('success! ', data))
+      .catch(error => console.log(error));
   }
 
   render() {
-    const { addComment, currentUser } = this.state;
+    const { content, currentUser } = this.state;
     const { data } = this.props;
 
     return (
@@ -71,8 +83,8 @@ class CommentsScreen extends React.Component {
               />
           }
           <TextInput
-            value={addComment}
-            onChange={(addComment) => this.setState({ addComment })}
+            value={content}
+            onChange={(content) => this.setState({ content })}
             style={styles.textInput}
             clearTextOnFocus={true}
           />
@@ -96,20 +108,33 @@ class CommentsScreen extends React.Component {
 }
 
 const getComments = gql`
-query getComments($itemId: String!) {
+query getComments($itemId: ID!) {
   comments(itemId: $itemId) {
     content,
     createdAt,
     userDisplayName,
-    photoURL
   }
 }
 `;
 
-export default graphql(getComments, {
-  options: ownProps => ({
-    variables: {
-      itemId: ownProps.navigation.state.params.recordId,
-    }
-  })
-})(CommentsScreen);
+const addComment = gql`
+mutation content($itemId: String!, $userDisplayName: String!, $content: String!) {
+  commentCreate(itemId: $itemId, userDisplayName: $userDisplayName, content: $content) {
+    content,
+    itemId,
+    userDisplayName,
+    createdAt,
+  }
+}
+`;
+
+export default compose(
+  graphql(getComments, {
+    options: ownProps => ({
+      variables: {
+        itemId: ownProps.navigation.state.params.recordId,
+      }
+    }),
+  }),
+  graphql(addComment),
+)(CommentsScreen);

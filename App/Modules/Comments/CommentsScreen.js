@@ -34,7 +34,7 @@ class CommentsScreen extends React.Component {
   }
 
   post() {
-    const { mutate, navigation } = this.props;
+    const { mutate, navigation, data } = this.props;
     const { currentUser, content } = this.state;
 
     alert('Comments are made public upon posting!');
@@ -44,10 +44,11 @@ class CommentsScreen extends React.Component {
         itemId: navigation.state.params.recordId,
         userDisplayName: currentUser.displayName,
         content: content,
-        photoURL: currentUser.photoURL || 'https://thumb9.shutterstock.com/display_pic_with_logo/4473031/518740732/stock-vector-default-avatar-profile-icon-grey-photo-placeholder-518740732.jpg',
+        photoURL: currentUser.photoURL,
       }
     }).then(({ data }) => console.log('success! ', data))
       .catch(error => console.log('error: ', error));
+    data.refetch();
   }
 
   render() {
@@ -123,7 +124,7 @@ query getComments($itemId: ID!) {
 `;
 
 const addComment = gql`
-mutation content($itemId: String!, $userDisplayName: String!, $content: String!, $photoURL: String) {
+mutation content($itemId: String!, $userDisplayName: String!, $content: String!, $photoURL: String!) {
   commentCreate(itemId: $itemId, userDisplayName: $userDisplayName, content: $content, photoURL: $photoURL) {
     content,
     itemId,

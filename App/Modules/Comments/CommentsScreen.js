@@ -44,9 +44,10 @@ class CommentsScreen extends React.Component {
         itemId: navigation.state.params.recordId,
         userDisplayName: currentUser.displayName,
         content: content,
+        photoURL: currentUser.photoURL || 'https://thumb9.shutterstock.com/display_pic_with_logo/4473031/518740732/stock-vector-default-avatar-profile-icon-grey-photo-placeholder-518740732.jpg',
       }
     }).then(({ data }) => console.log('success! ', data))
-      .catch(error => console.log(error));
+      .catch(error => console.log('error: ', error));
   }
 
   render() {
@@ -63,7 +64,10 @@ class CommentsScreen extends React.Component {
                   data.comments.map(comment =>
                     <Comment
                       key={comment._id}
-                      comment={comment}
+                      content={comment.content}
+                      displayName={comment.userDisplayName}
+                      createdAt={comment.createdAt}
+                      photoURL={comment.photoURL}
                     />
                   )
                 }
@@ -84,7 +88,7 @@ class CommentsScreen extends React.Component {
           }
           <TextInput
             value={content}
-            onChange={(content) => this.setState({ content })}
+            onChangeText={(content) => this.setState({ content })}
             style={styles.textInput}
             clearTextOnFocus={true}
           />
@@ -113,17 +117,19 @@ query getComments($itemId: ID!) {
     content,
     createdAt,
     userDisplayName,
+    photoURL,
   }
 }
 `;
 
 const addComment = gql`
-mutation content($itemId: String!, $userDisplayName: String!, $content: String!) {
-  commentCreate(itemId: $itemId, userDisplayName: $userDisplayName, content: $content) {
+mutation content($itemId: String!, $userDisplayName: String!, $content: String!, $photoURL: String) {
+  commentCreate(itemId: $itemId, userDisplayName: $userDisplayName, content: $content, photoURL: $photoURL) {
     content,
     itemId,
     userDisplayName,
     createdAt,
+    photoURL,
   }
 }
 `;

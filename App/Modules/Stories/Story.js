@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
+import moment from 'moment';
 
 // styles
 import styles from './StoryStyles';
-
-// TODO: name and text should be together
-// TODO: test for overflow
-// TODO: add bottom border to story text
 
 class Story extends React.Component {
   constructor(props) {
@@ -16,17 +13,14 @@ class Story extends React.Component {
     this.navigateToComments = this.navigateToComments.bind(this);
   }
 
-
   static propTypes = {
-    story: PropTypes.shape({
-      img: PropTypes.shape({
-        src: PropTypes.string,
-      }),
-      name: PropTypes.string,
-      date: PropTypes.string,
-      text: PropTypes.string,
-    }).isRequired,
-  }
+    content: PropTypes.string.isRequired,
+    userID: PropTypes.string.isRequired,
+    userDisplayName: PropTypes.string.isRequired,
+    userPhotoURL: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    photoURL: PropTypes.string.isRequired,
+  };
 
   navigateToComments() {
     const { navigate } = this.props.navigation;
@@ -34,24 +28,24 @@ class Story extends React.Component {
   }
 
   render() {
-    const { story } = this.props;
+    const { content, userID, userDisplayName, userPhotoURL, createdAt, photoURL} = this.props;
     return (
       <View style={styles.storyContainer}>
         <View style={styles.headerContainer}>
-          <Image style={styles.profileImage} source={{ uri: story.profileImg }} />
+          <Image style={styles.profileImage} source={{ uri: userPhotoURL }} />
           <View>
-            <Text style={styles.nameText}>{story.name}</Text>
-            <Text style={styles.dateText}>{story.date}</Text>
+            <Text style={styles.nameText}>{userDisplayName}</Text>
+            <Text style={styles.dateText}>{moment(Date(createdAt)).format("D MMMM YYYY")}</Text>
           </View>
         </View>
         <View>
-          { story.storyImg ? <Image style={styles.storyImage} source={{ uri: story.storyImg }} /> : <View />}
-          <Text style={styles.storyText}>{story.text}</Text>
+          { photoURL ? <Image style={styles.storyImage} source={{ uri: photoURL }} /> : <View />}
+          <Text style={styles.storyText}>{content}</Text>
           <TouchableOpacity
             onPress={this.navigateToComments}
             style={styles.commentsButton}
           >
-            <Text style={styles.commentsButtonText}>{`View ${story.comments.length} comments`}</Text>
+            <Text style={styles.commentsButtonText}>{`View 2 comments`}</Text>
           </TouchableOpacity>
         </View>
       </View>

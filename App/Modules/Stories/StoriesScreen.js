@@ -2,33 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { ScrollView, View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import Story from './Story.js';
 
 // styles
 import styles from './StoriesScreenStyles';
-
-
-const sampleStory1 = {
-  _id: 'sdhfjsdfjkjh7634723',
-  name: 'Tyler Kirby',
-  text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
-  profileImg: 'https://ids.lib.harvard.edu/ids/view/423164986',
-  storyImg: 'https://ids.lib.harvard.edu/ids/view/423164986',
-  comments: ['1 comment', '2 comment', '3 Comment'],
-  date: 'October 1, 2017'
-}
-
-const sampleStory2 = {
-  _id: 'sdhfjsdfjkj362gf334723',
-  name: 'Tyler Kirby',
-  text: 'Minim minim ea consectetur eu deserunt cillum. Consectetur incididunt ad adipisicing nulla aute consequat. Magna reprehenderit ex veniam do esse tempor. Ipsum proident ipsum laborum deserunt nulla enim esse. Proident excepteur tempor anim laborum do aute elit non tempor mollit sunt mollit. Officia irure in qui occaecat est anim commodo anim ut eiusmod adipisicing eu ad est.',
-  profileImg: 'https://ids.lib.harvard.edu/ids/view/423164986',
-  comments: ['1 comment', '2 comment'],
-  date: 'October 2, 2017',
-}
-
-const sampleStories = [sampleStory1, sampleStory2]
 
 class StoriesScreen extends React.Component {
   constructor(props) {
@@ -41,17 +21,17 @@ class StoriesScreen extends React.Component {
 
   static navigationOptions = {
     tabBarLabel: 'Stories',
-  }
+  };
 
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
-  }
+  };
 
   render() {
     const { addStory } = this.state;
-    const { navigation } = this.props;
+    const { navigation, data} = this.props;
     return (
       <ScrollView style={styles.container}>
         <View style={styles.headerContainer}>
@@ -69,11 +49,37 @@ class StoriesScreen extends React.Component {
           </View>
         </View>
         <View>
-          { sampleStories.map(story => <Story story={story} navigation={navigation} key={story._id}/>) }
+          {
+            data.stories && data.stories.map(story =>
+              <Story
+                navigation={navigation}
+                key={story._id}
+                content={story.content}
+                userID={story.userID}
+                userDisplayName={story.userDisplayName}
+                userPhotoURL={story.userPhotoURL}
+                createdAt={story.createdAt}
+                photoURL={story.photoURL}
+              />
+            )
+          }
         </View>
       </ScrollView>
     );
   }
 }
 
-export default StoriesScreen;
+const getStories = gql`
+query getStories {
+  stories {
+    content,
+    userID,
+    userDisplayName,
+    userProfilePhotoURL,
+    createdAt,
+    photoURL
+  }
+}
+`;
+
+export default compose(graphql(getStories))(StoriesScreen);

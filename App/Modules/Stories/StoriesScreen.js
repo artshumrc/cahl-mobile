@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { ScrollView, View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
+import firebase from 'firebase';
 
+// components
 import Story from './Story.js';
 
 // styles
@@ -17,6 +19,8 @@ class StoriesScreen extends React.Component {
     this.state = {
       addStory: 'Share your story'
     }
+
+    this.post = this.post.bind(this);
   }
 
   static navigationOptions = {
@@ -28,6 +32,17 @@ class StoriesScreen extends React.Component {
       navigate: PropTypes.func,
     }).isRequired,
   };
+
+  post() {
+    const { navigate } = this.props.navigation;
+
+    if (firebase.currentUser) {
+      alert('Stories are made public upon posting!');
+      alert(`Hey ${firebase.currentUser.displayName}`)
+    } else {
+      navigate('LoginScreen');
+    }
+  }
 
   render() {
     const { addStory } = this.state;
@@ -43,7 +58,7 @@ class StoriesScreen extends React.Component {
               style={styles.textInput}
               clearTextOnFocus={true}
             />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.post}>
               <Icon name="plus" style={styles.submitIcon} />
             </TouchableOpacity>
           </View>

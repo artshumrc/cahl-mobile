@@ -30,7 +30,8 @@ class CommentsScreen extends React.Component {
 
   login() {
     const { navigate } = this.props.navigation;
-    navigate('LoginScreen');
+    const { recordId } = this.props.navigation.state.params;
+    navigate('LoginScreen', { recordId });
   }
 
   post() {

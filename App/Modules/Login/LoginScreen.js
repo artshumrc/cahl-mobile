@@ -13,7 +13,7 @@ const config = {
   apiKey: 'AIzaSyA9T3ymeQYY7ri8Ut-sAds9KsD3bQ_kYmE',
   authDomain: 'cahl-mobile.firebaseapp.com/',
   databaseUrl: 'https://cahl-mobile.firebaseio.com/'
-}
+};
 
 const firebaseRef = firebase.initializeApp(config);
 
@@ -28,7 +28,7 @@ class LoginScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Sign In'
-  }
+  };
 
   facebookAuth() {
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(result => {
@@ -53,8 +53,9 @@ class LoginScreen extends React.Component {
 
   handleFacebookSubmit() {
     const { navigate } = this.props.navigation;
+    const { recordId } = this.props.navigation.state.params;
     this.facebookAuth();
-    navigate('CommentsScreen');
+    navigate('CommentsScreen', { recordId });
   }
 
   handleGoogleSubmit() {

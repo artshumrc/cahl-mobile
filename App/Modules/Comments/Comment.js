@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native';
+import moment from 'moment';
 
 // styles
 import styles from './CommentStyles';
@@ -15,7 +16,7 @@ const Comment = ({ content, displayName, createdAt, photoURL }) => (
           <Text style={styles.text}>{content}</Text>
         </Text>
       </View>
-      <Text style={styles.date}>{createdAt}</Text>
+      <Text style={styles.date}>{moment(Date(createdAt)).format("D MMMM YYYY")}</Text>
     </View>
   </View>
 );

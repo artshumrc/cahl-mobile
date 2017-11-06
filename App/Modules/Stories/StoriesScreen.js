@@ -17,8 +17,10 @@ class StoriesScreen extends React.Component {
     super(props);
 
     this.state = {
-      addStory: 'Share your story'
-    }
+      content: 'Share your story',
+      currentUser: firebase.auth().currentUser,
+      photoURL: ''
+    };
 
     this.post = this.post.bind(this);
   }
@@ -34,11 +36,21 @@ class StoriesScreen extends React.Component {
   };
 
   post() {
-    const { navigate } = this.props.navigation;
+    const { data, mutate, navigation: { navigate } } = this.props;
+    const { currentUser, content, photoURL } = this.state;
 
-    if (firebase.currentUser) {
+    if (currentUser !== undefined) {
       alert('Stories are made public upon posting!');
-      alert(`Hey ${firebase.currentUser.displayName}`)
+      mutate({
+        variables: {
+          content: content,
+          userDisplayName: currentUser.displayName,
+          userProfilePhotoURL: currentUser.photoURL,
+          photoURL: photoURL
+        }
+      }).then(({ data }) => console.log('successfully added story ', data))
+        .catch(error => console.log('error when adding story ', error));
+      data.refetch();
     } else {
       navigate('LoginScreen');
     }
@@ -54,7 +66,7 @@ class StoriesScreen extends React.Component {
           <View style={styles.submitStory}>
             <TextInput
               value={addStory}
-              onChange={(addStory) => this.setState({ addStory })}
+              onChangeText={content => this.setState({ content })}
               style={styles.textInput}
               clearTextOnFocus={true}
             />
@@ -97,4 +109,16 @@ query getStories {
 }
 `;
 
-export default compose(graphql(getStories))(StoriesScreen);
+const addStory = gql`
+mutation addStory($content: String!, $userDisplayName: String!, $userProfilePhotoURL: String!, $photoURL: String) {
+  storyCreate(content: $content, userDisplayName: $userDisplayName, userProfilePhotoURL: $userProfilePhotoURL, photoURL: $photoURL) {
+    content,
+    userDisplayName,
+    userProfilePhotoURL,
+    createdAt,
+    photoURL
+  }
+}
+`;
+
+export default compose(graphql(getStories), graphql(addStory))(StoriesScreen);

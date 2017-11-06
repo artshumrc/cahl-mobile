@@ -9,6 +9,7 @@ import {
   TabRouter,
   addNavigationHelpers,
 } from 'react-navigation';
+import I18n from 'react-native-i18n';
 
 // views
 import ExhibitsScreen from '../modules/Exhibits';
@@ -18,38 +19,71 @@ import SearchScreen from '../modules/Search';
 // styles
 import styles from './CustomTabsStyles';
 
-const CustomTabBar = ({ navigation }) => (
-  <View style={styles.container}>
-    <View style={styles.leftContainer}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Exhibits')}
-        style={styles.exhibitsLabel}
-      >
-        <Text style={styles.labelText}>Exhibits</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Stories')}
-        style={styles.storiesLabel}
-      >
-        <Text style={styles.labelText}>Stories</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.rightContainer}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Search')}
-        style={styles.searchLabel}
-      >
-        <Icon name="search" style={styles.labelText}/>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => console.log('language change!')}
-        style={styles.languageLabel}
-      >
-        <Flag code="FR" size={24} type="shiny" />
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+class CustomTabBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      locale: 'en',
+    };
+
+    this.toggleLocale = this.toggleLocale.bind(this);
+  }
+
+  toggleLocale() {
+    const { locale } = this.state;
+    if (locale === 'en') {
+      I18n.locale = 'fr';
+      this.setState({ locale: 'fr' });
+    } else {
+      I18n.locale = 'en';
+      this.setState({ locale: 'en' });
+    }
+    console.log('Current locale', I18n.locale);
+  }
+
+  render() {
+    const { locale } = this.state;
+    return (
+      <View style={styles.container}>
+        <View style={styles.leftContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Exhibits')}
+            style={styles.exhibitsLabel}
+          >
+            <Text style={styles.labelText}>Exhibits</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Stories')}
+            style={styles.storiesLabel}
+          >
+            <Text style={styles.labelText}>Stories</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.rightContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Search')}
+            style={styles.searchLabel}
+          >
+            <Icon name="search" style={styles.labelText}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.toggleLocale}
+            style={styles.languageLabel}
+          >
+            {
+              locale === 'en' ?
+                <Flag code="GB" size={24} type="shiny"/>
+                :
+                <Flag code="FR" size={24} type="shiny"/>
+            }
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+}
+
 
 CustomTabBar.propTypes = {
   navigation: PropTypes.shape({

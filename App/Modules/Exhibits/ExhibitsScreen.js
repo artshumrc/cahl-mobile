@@ -18,7 +18,7 @@ class ExhibitsScreen extends React.Component {
 
   static navigationOptions = {
     tabBarLabel: 'Exhibits',
-  }
+  };
 
   static propTypes = {
     navigation: PropTypes.shape({
@@ -28,7 +28,7 @@ class ExhibitsScreen extends React.Component {
       loading: PropTypes.bool.isRequired,
       exhibits: PropTypes.object,
     }).isRequired,
-  }
+  };
 
   navigateToComments() {
     const { navigate } = this.props.navigation;

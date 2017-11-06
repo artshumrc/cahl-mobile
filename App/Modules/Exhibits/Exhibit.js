@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo'
 
+
+// styles
 import styles from './ExhibitStyles.js';
 
 class Exhibit extends React.Component {
@@ -24,7 +28,7 @@ class Exhibit extends React.Component {
   }
 
   render() {
-    const { totalNumberOfItems, exhibitNumber, imageSource, description } = this.props;
+    const { totalNumberOfItems, exhibitNumber, imageSource, description, data: { comments } } = this.props;
     return (
       <View>
         <Text style={styles.number}>{`${exhibitNumber}/${totalNumberOfItems}`}</Text>
@@ -36,11 +40,32 @@ class Exhibit extends React.Component {
           onPress={this.navigateToComments}
           style={styles.commentsButton}
         >
-          <Text style={styles.commentsButtonText}>View 2 comments</Text>
+          <Text style={styles.commentsButtonText}>
+            {
+              comments && comments.length > 0 ?
+                `View ${comments.length} comments`
+                :
+                'Add a Comment'
+            }
+          </Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default Exhibit;
+const getComments = gql`
+query getComments($itemId: ID!) {
+  comments(itemId: $itemId) {
+    _id
+  }
+}
+`;
+
+export default graphql(getComments, {
+  options: ownProps => ({
+    variables: {
+      itemId: ownProps.recordId
+    }
+  })
+})(Exhibit);

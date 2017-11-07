@@ -3,30 +3,35 @@ import { View, ScrollView, TextInput, Image, Button, Text } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import firebase from 'firebase';
+import I18n from 'react-native-i18n';
 
 // components
 import Comment from './Comment';
 
-
 // styles
 import styles from './CommentsScreenStyles';
+
+// translations
+import en from '../../i18n/languages/english.json';
+import fr from '../../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
 
 class CommentsScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      content: 'Add your comment.',
+      content: I18n.t('addComment'),
       currentUser: firebase.auth().currentUser,
     };
 
     this.post = this.post.bind(this);
     this.login = this.login.bind(this);
   }
-
-  static navigationOptions = {
-    title: 'Comments'
-  };
 
   login() {
     const { navigate } = this.props.navigation;
@@ -38,7 +43,7 @@ class CommentsScreen extends React.Component {
     const { mutate, navigation, data } = this.props;
     const { currentUser, content } = this.state;
 
-    alert('Comments are made public upon posting!');
+    alert(I18n.t('publicComments'));
 
     mutate({
       variables: {
@@ -76,7 +81,7 @@ class CommentsScreen extends React.Component {
               </View>
               :
               <View>
-                <Text>No comments available.</Text>
+                <Text>{I18n.t('noCommentsExhibit')}</Text>
               </View>
           }
         </ScrollView>
@@ -97,12 +102,12 @@ class CommentsScreen extends React.Component {
           {
             currentUser ?
               <Button
-                title={'Post'}
+                title={I18n.t('post')}
                 onPress={this.post}
               />
             :
               <Button
-                title={'Sign in'}
+                title={I18n.t('signIn')}
                 onPress={this.login}
               />
           }

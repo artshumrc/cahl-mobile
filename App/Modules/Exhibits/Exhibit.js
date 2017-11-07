@@ -3,10 +3,19 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo'
-
+import I18n from 'react-native-i18n';
 
 // styles
 import styles from './ExhibitStyles.js';
+
+// translations
+import en from '../../i18n/languages/english.json';
+import fr from '../../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
 
 class Exhibit extends React.Component {
   constructor(props) {
@@ -43,9 +52,9 @@ class Exhibit extends React.Component {
           <Text style={styles.commentsButtonText}>
             {
               comments && comments.length > 0 ?
-                `View ${comments.length} comments`
+                `${I18n.t('view')} ${comments.length} ${I18n.t('comments')}`
                 :
-                'Add a Comment'
+                I18n.t('addComment')
             }
           </Text>
         </TouchableOpacity>

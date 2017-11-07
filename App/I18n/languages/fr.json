@@ -15,5 +15,8 @@
   "viewItem": "Regarder l'objet",
   "storiesMessage": "Quelle a été votre réaction personnelle aux tirs et à la couverture médiatique qui a suivi?",
   "loading": "Chargement...",
-  "error": "Erreur"
+  "error": "Erreur",
+  "addComment": "Ajoutez votre commentaire",
+  "noCommentsExhibit": "Personne n'a encore commenté cette exposition.",
+  "post": "Poster"
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
+import I18n from 'react-native-i18n'
 
 import CustomTabs from './CustomTabs';
 
@@ -10,6 +11,15 @@ import CommentsScreen from '../modules/Comments';
 // styles
 import styles from './NavigationStyles';
 
+// translations
+import en from '../i18n/languages/english.json';
+import fr from '../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
+
 const PrimaryNav = StackNavigator({
   Root: {
     screen: CustomTabs,
@@ -17,7 +27,12 @@ const PrimaryNav = StackNavigator({
       header: null,
     },
   },
-  CommentsScreen: { screen: CommentsScreen },
+  CommentsScreen: {
+    screen: CommentsScreen,
+    navigationOptions: {
+      title: I18n.t('comments')
+    }
+  },
   LoginScreen: { screen: LoginScreen },
 }, {
   navigationOptions: {

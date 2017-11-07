@@ -15,5 +15,8 @@
   "viewItem": "View Item",
   "storiesMessage": "What was your personal reaction to the shootings and media coverage that followed?",
   "loading": "Loading...",
-  "error": "Error"
+  "error": "Error",
+  "addComment": "Add your comment",
+  "noCommentsExhibit": "No one has commented on this exhibit yet.",
+  "post": "Post"
 }

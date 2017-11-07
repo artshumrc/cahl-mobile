@@ -27,10 +27,6 @@ class ExhibitsScreen extends React.Component {
     this.navigateToComments = this.navigateToComments.bind(this);
   };
 
-  static defaultProps = {
-    locale: I18n.locale
-  };
-
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,

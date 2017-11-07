@@ -10,5 +10,8 @@
   "publicComments": "Les commentaires sont rendus publics lors de l'affichage",
   "publicStories": "Les histoires sont rendues publiques lors de l'affichage",
   "charlieArchive": "Charlie Archive",
-  "atHUL": "à la bibliothèque de Harvard"
+  "atHUL": "à la bibliothèque de Harvard",
+  "searchItem": "Entrez un numéro d'article",
+  "viewItem": "Regarder l'objet",
+  "storiesMessage": "Quelle a été votre réaction personnelle aux tirs et à la couverture médiatique qui a suivi?"
 }

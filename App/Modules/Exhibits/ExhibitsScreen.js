@@ -3,21 +3,32 @@ import PropTypes from 'prop-types';
 import { ScrollView, View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import I18n from 'react-native-i18n';
 
+// components
 import Exhibit from './Exhibit.js';
 
 // styles
 import styles from './ExhibitsScreenStyles';
+
+// translations
+import en from '../../i18n/languages/english.json';
+import fr from '../../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
 
 class ExhibitsScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.navigateToComments = this.navigateToComments.bind(this);
-  }
+  };
 
-  static navigationOptions = {
-    tabBarLabel: 'Exhibits',
+  static defaultProps = {
+    locale: I18n.locale
   };
 
   static propTypes = {
@@ -40,12 +51,12 @@ class ExhibitsScreen extends React.Component {
 
     if (loading) {
       return (
-        <Text style={styles.title}>Loading...</Text>
+        <Text style={styles.title}>{I18n.t('loading')}</Text>
       )
     } else if (error) {
-      console.log(error)
+      console.log(error);
       return (
-        <Text style={styles.title}>Error</Text>
+        <Text style={styles.title}>{I18n.t('error')}</Text>
       )
     } else {
       const totalNumberOfItems = HULItems.pagination.numFound;
@@ -54,8 +65,8 @@ class ExhibitsScreen extends React.Component {
       return (
         <ScrollView style={styles.container}>
           <View style={styles.textBox}>
-            <Text style={styles.title}>Charlie Archive</Text>
-            <Text style={styles.subtitle}>at the Harvard Library</Text>
+            <Text style={styles.title}>{I18n.t('charlieArchive')}</Text>
+            <Text style={styles.subtitle}>{I18n.t('atHUL')}</Text>
           </View>
           <View>
             {

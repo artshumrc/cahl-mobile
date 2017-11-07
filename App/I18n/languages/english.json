@@ -13,5 +13,7 @@
   "atHUL": "at the Harvard Library",
   "searchItem": "Enter an item number",
   "viewItem": "View Item",
-  "storiesMessage": "What was your personal reaction to the shootings and media coverage that followed?"
+  "storiesMessage": "What was your personal reaction to the shootings and media coverage that followed?",
+  "loading": "Loading...",
+  "error": "Error"
 }

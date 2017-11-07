@@ -13,5 +13,7 @@
   "atHUL": "à la bibliothèque de Harvard",
   "searchItem": "Entrez un numéro d'article",
   "viewItem": "Regarder l'objet",
-  "storiesMessage": "Quelle a été votre réaction personnelle aux tirs et à la couverture médiatique qui a suivi?"
+  "storiesMessage": "Quelle a été votre réaction personnelle aux tirs et à la couverture médiatique qui a suivi?",
+  "loading": "Chargement...",
+  "error": "Erreur"
 }

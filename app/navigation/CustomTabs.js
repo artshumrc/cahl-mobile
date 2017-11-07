@@ -19,6 +19,15 @@ import SearchScreen from '../modules/Search';
 // styles
 import styles from './CustomTabsStyles';
 
+// translations
+import en from '../i18n/languages/english';
+import fr from '../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
+
 class CustomTabBar extends React.Component {
   constructor(props) {
     super(props);
@@ -52,13 +61,13 @@ class CustomTabBar extends React.Component {
             onPress={() => navigation.navigate('Exhibits')}
             style={styles.exhibitsLabel}
           >
-            <Text style={styles.labelText}>Exhibits</Text>
+            <Text style={styles.labelText}>{I18n.t('exhibits')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('Stories')}
             style={styles.storiesLabel}
           >
-            <Text style={styles.labelText}>Stories</Text>
+            <Text style={styles.labelText}>{I18n.t('stories')}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.rightContainer}>

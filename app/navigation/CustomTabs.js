@@ -44,6 +44,7 @@ class CustomTabBar extends React.Component {
 
   render() {
     const { locale } = this.state;
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.leftContainer}>

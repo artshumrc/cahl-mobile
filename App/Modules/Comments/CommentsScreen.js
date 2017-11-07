@@ -125,6 +125,7 @@ query getComments($itemId: ID!) {
     createdAt,
     userDisplayName,
     photoURL,
+    userToken,
   }
 }
 `;

@@ -100,7 +100,7 @@ const getStories = gql`
 query getStories {
   stories {
     content,
-    userID,
+    userToken,
     userDisplayName,
     userProfilePhotoURL,
     createdAt,

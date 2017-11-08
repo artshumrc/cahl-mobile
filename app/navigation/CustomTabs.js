@@ -10,6 +10,9 @@ import {
   addNavigationHelpers,
 } from 'react-navigation';
 import I18n from 'react-native-i18n';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions/index';
 
 // views
 import ExhibitsScreen from '../modules/Exhibits';
@@ -94,12 +97,17 @@ class CustomTabBar extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
 
-CustomTabBar.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-};
+function mapStateToProps(state) {
+  return {
+    localeState: state.locale,
+  };
+}
+
+connect(mapStateToProps, mapDispatchToProps)(CustomTabBar);
 
 
 const CustomTabView = ({ router, navigation }) => {

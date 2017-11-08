@@ -16,7 +16,13 @@ networkInterface.use([{
     if (!req.options.headers) {
       req.options.headers = {}; // Create the header object if needed.
     }
-    req.options.headers.authorization = firebase.auth().currentUser ? firebase.auth().currentUser.getIdToken() : null;
+    if (firebase.auth().currentUser) {
+      firebase.auth().currentUser.getIdToken()
+        .then(idToken => req.options.headers.authorization = idToken)
+        .catch(error => console.log(error));
+    } else {
+      req.options.headers.authorization = null;
+    }
     next();
   }
 }]);

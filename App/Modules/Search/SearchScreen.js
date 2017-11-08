@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import I18n from 'react-native-i18n';
+import firebase from 'firebase';
 
 // styles
 import styles from './SearchScreenStyles.js';
@@ -35,6 +36,7 @@ class SearchScreen extends React.Component {
     const { exhibitNumber } = this.state;
     const buttonStyle = exhibitNumber !== '' ? styles.button : styles.buttonNotReady;
     const buttonTextStyle = exhibitNumber !== '' ? styles.buttonText : styles.buttonTextNotReady;
+
     return (
       <View style={styles.container}>
         <Text style={styles.instructionText}>{I18n.t('searchItem')}</Text>

@@ -5,12 +5,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import firebase from 'firebase';
+import I18n from 'react-native-i18n';
 
 // components
 import Story from './Story.js';
 
 // styles
 import styles from './StoriesScreenStyles';
+
+// translations
+import en from '../../i18n/languages/english';
+import fr from '../../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
 
 class StoriesScreen extends React.Component {
   constructor(props) {
@@ -40,7 +50,7 @@ class StoriesScreen extends React.Component {
     const { currentUser, content, photoURL } = this.state;
 
     if (currentUser !== undefined) {
-      alert('Stories are made public upon posting!');
+      alert(I18n.t('publicStories'));
       mutate({
         variables: {
           content: content,
@@ -62,7 +72,7 @@ class StoriesScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.headerContainer}>
-          <Text style={styles.questionText}>What was your personal react to the shootings and media coverage that followed?</Text>
+          <Text style={styles.questionText}>{I18n.t('storiesMessage')}</Text>
           <View style={styles.submitStory}>
             <TextInput
               value={addStory}

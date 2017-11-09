@@ -24,6 +24,7 @@ I18n.translations = {
   en,
   fr,
 };
+
 class CustomTabView extends React.Component {
   constructor(props) {
     super(props);

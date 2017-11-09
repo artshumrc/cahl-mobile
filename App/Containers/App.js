@@ -4,7 +4,6 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleWare from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 import firebase from 'firebase';
 
 import RootContainer from './RootContainer';
@@ -33,8 +32,6 @@ const client = new ApolloClient({
   networkInterface,
 });
 
-const loggerMiddleWare = createLogger({ predicate: (getState, action) => __DEV__});
-
 const store = createStore(
   combineReducers({
     apollo: client.reducer(),
@@ -44,7 +41,6 @@ const store = createStore(
     applyMiddleware(
       client.middleware(),
       thunkMiddleWare,
-      loggerMiddleWare,
     ),
   ),
 );

@@ -3,7 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Flag from 'react-native-flags';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
+// import connect from 'react-apollo';
+// import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions/index';
 
@@ -95,4 +96,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomTabBar);
+// export default connect(mapStateToProps, mapDispatchToProps)(CustomTabBar);
+export default CustomTabBar;

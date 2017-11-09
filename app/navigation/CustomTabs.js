@@ -69,21 +69,6 @@ class CustomTabView extends React.Component {
     );
   }
 }
-// const CustomTabView = ({ router, navigation }) => {
-//   const { routes, index } = navigation.state;
-//   const ActiveScreen = router.getComponentForRouteName(routes[index].routeName);
-//   return (
-//     <View>
-//       <CustomTabBar navigation={navigation} />
-//       <ActiveScreen
-//         navigation={addNavigationHelpers({
-//           ...navigation,
-//           state: routes[index],
-//         })}
-//       />
-//     </View>
-//   );
-// };
 
 CustomTabView.propTypes = {
   router: PropTypes.shape({

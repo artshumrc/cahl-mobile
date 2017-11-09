@@ -3,10 +3,11 @@ import { ApolloProvider } from 'react-apollo';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleWare from 'redux-thunk';
 import firebase from 'firebase';
 
 import RootContainer from './RootContainer';
+
+import localeReducer from '../reducers/locale';
 
 const networkInterface = createNetworkInterface({
   uri: 'http://api.cahl.orphe.us/graphql',
@@ -25,7 +26,7 @@ networkInterface.use([{
       req.options.headers.authorization = null;
     }
     next();
-  }
+  },
 }]);
 
 const client = new ApolloClient({
@@ -35,12 +36,12 @@ const client = new ApolloClient({
 const store = createStore(
   combineReducers({
     apollo: client.reducer(),
+    localeReducer,
   }),
   {},
   composeWithDevTools(
     applyMiddleware(
       client.middleware(),
-      thunkMiddleWare,
     ),
   ),
 );

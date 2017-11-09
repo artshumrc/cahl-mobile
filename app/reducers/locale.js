@@ -1,8 +1,18 @@
-import createReducer from '../lib/createReducer';
-import * as types from '../actions/types';
+// types
+import { SET_LOCALE, GET_LOCALE } from '../actions/types';
 
-export const locale = createReducer({}, {
-  [types.SET_LOCALE](state, action) {
+const initialState = {
+  locale: 'en',
+};
 
+export default function localeReducer(state = initialState, action) {
+  switch (action.type) {
+    case SET_LOCALE:
+      return {
+        ...state,
+        locale: action.locale,
+      };
+    default:
+      return state;
   }
-});
+}

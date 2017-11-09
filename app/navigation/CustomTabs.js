@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, TouchableOpacity } from 'react-native';
-import Flag from 'react-native-flags';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View } from 'react-native';
 import {
   createNavigator,
   createNavigationContainer,
@@ -11,13 +9,12 @@ import {
 } from 'react-navigation';
 import I18n from 'react-native-i18n';
 
+import CustomTabBar from './CustomTabBar';
+
 // views
 import ExhibitsScreen from '../modules/Exhibits';
 import StoriesScreen from '../modules/Stories';
 import SearchScreen from '../modules/Search';
-
-// styles
-import styles from './CustomTabsStyles';
 
 // translations
 import en from '../i18n/languages/english';
@@ -27,13 +24,12 @@ I18n.translations = {
   en,
   fr,
 };
-
-class CustomTabBar extends React.Component {
+class CustomTabView extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      locale: 'en',
+      locale: I18n.locale,
     };
 
     this.toggleLocale = this.toggleLocale.bind(this);
@@ -52,71 +48,42 @@ class CustomTabBar extends React.Component {
   }
 
   render() {
+    const { router, navigation } = this.props;
     const { locale } = this.state;
-    const { navigation } = this.props;
+    const { routes, index } = navigation.state;
+    const ActiveScreen = router.getComponentForRouteName(routes[index].routeName);
     return (
-      <View style={styles.container}>
-        <View style={styles.leftContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Exhibits')}
-            style={styles.exhibitsLabel}
-          >
-            <Text style={styles.labelText}>{I18n.t('exhibits')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Stories')}
-            style={styles.storiesLabel}
-          >
-            <Text style={styles.labelText}>{I18n.t('stories')}</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.rightContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Search')}
-            style={styles.searchLabel}
-          >
-            <Icon name="search" style={styles.labelText}/>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={this.toggleLocale}
-            style={styles.languageLabel}
-          >
-            {
-              locale === 'en' ?
-                <Flag code="GB" size={24} type="shiny"/>
-                :
-                <Flag code="FR" size={24} type="shiny"/>
-            }
-          </TouchableOpacity>
-        </View>
+      <View>
+        <CustomTabBar
+          navigation={navigation}
+          toggleLocale={this.toggleLocale}
+          locale={locale}
+        />
+        <ActiveScreen
+          navigation={addNavigationHelpers({
+            ...navigation,
+            state: routes[index],
+          })}
+        />
       </View>
-    )
+    );
   }
 }
-
-
-CustomTabBar.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func,
-  }).isRequired,
-};
-
-
-const CustomTabView = ({ router, navigation }) => {
-  const { routes, index } = navigation.state;
-  const ActiveScreen = router.getComponentForRouteName(routes[index].routeName);
-  return (
-    <View>
-      <CustomTabBar navigation={navigation} />
-      <ActiveScreen
-        navigation={addNavigationHelpers({
-          ...navigation,
-          state: routes[index],
-        })}
-      />
-    </View>
-  );
-};
+// const CustomTabView = ({ router, navigation }) => {
+//   const { routes, index } = navigation.state;
+//   const ActiveScreen = router.getComponentForRouteName(routes[index].routeName);
+//   return (
+//     <View>
+//       <CustomTabBar navigation={navigation} />
+//       <ActiveScreen
+//         navigation={addNavigationHelpers({
+//           ...navigation,
+//           state: routes[index],
+//         })}
+//       />
+//     </View>
+//   );
+// };
 
 CustomTabView.propTypes = {
   router: PropTypes.shape({

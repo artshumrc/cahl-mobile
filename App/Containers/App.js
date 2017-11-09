@@ -24,7 +24,7 @@ networkInterface.use([{
       req.options.headers.authorization = null;
     }
     next();
-  }
+  },
 }]);
 
 const client = new ApolloClient({

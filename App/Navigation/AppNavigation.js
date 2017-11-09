@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import I18n from 'react-native-i18n'
+import I18n from 'react-native-i18n';
 
 import CustomTabs from './CustomTabs';
 

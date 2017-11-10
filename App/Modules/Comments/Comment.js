@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import I18n from 'react-native-i18n';
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
 // styles
 import styles from './CommentStyles';
@@ -23,8 +25,28 @@ class Comment extends React.Component {
     this.removeComment = this.removeComment.bind(this);
   }
 
-  removeComment() {
+  static propTypes = {
+    content: PropTypes.string.isRequired,
+    displayName: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    photoURL: PropTypes.string.isRequired,
+    userIsOwner: PropTypes.bool.isRequired,
+    mutate: PropTypes.func.isRequired,
+    commentId: PropTypes.string.isRequired,
+    refecth: PropTypes.func.isRequired,
+  }
 
+  removeComment() {
+    const { mutate, commentId, refetch } = this.props;
+
+    mutate({
+      variables: {
+        commentId,
+      },
+    }).then(({ data }) => console.log('removed comment successfully', data))
+      .catch(error => console.log(error));
+
+    refetch();
   }
 
   render() {
@@ -40,7 +62,7 @@ class Comment extends React.Component {
             </Text>
           </View>
           <View>
-            <Text style={styles.date}>{moment(Date(createdAt)).format('D MMMM YYYY')}</Text>
+            <Text style={styles.date}>{moment(createdAt).format('D MMMM YYYY')}</Text>
             {
               userIsOwner
               &&
@@ -51,16 +73,16 @@ class Comment extends React.Component {
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
 
-Comment.propTypes = {
-  content: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  photoURL: PropTypes.string.isRequired,
-  userIsOwner: PropTypes.bool.isRequired,
-};
+const removeComment = gql`
+mutation removeComment($commentId: String!) {
+  commentRemove(commentId: $commentId) {
+    _id
+  }
+}
+`;
 
-export default Comment;
+export default graphql(removeComment)(Comment);

@@ -51,7 +51,7 @@ class CommentsScreen extends React.Component {
         userDisplayName: currentUser.displayName,
         content: content,
         photoURL: currentUser.photoURL,
-      }
+      },
     }).then(({ data }) => console.log('success! ', data))
       .catch(error => console.log('error: ', error));
     data.refetch();
@@ -71,11 +71,13 @@ class CommentsScreen extends React.Component {
                   data.comments.map(comment => (
                     <Comment
                       key={comment._id}
+                      id={comment._id}
                       content={comment.content}
                       displayName={comment.userDisplayName}
                       createdAt={comment.createdAt}
                       photoURL={comment.photoURL}
                       userIsOwner={comment.userIsOwner}
+                      refetch={data.refetch}
                     />
                   ))
                 }
@@ -96,9 +98,9 @@ class CommentsScreen extends React.Component {
           }
           <TextInput
             value={content}
-            onChangeText={(content) => this.setState({ content })}
+            onChangeText={content => this.setState({ content })}
             style={styles.textInput}
-            clearTextOnFocus={true}
+            clearTextOnFocus
           />
           {
             currentUser ?
@@ -127,6 +129,7 @@ query getComments($itemId: ID!) {
     userDisplayName,
     photoURL,
     userIsOwner,
+    _id
   }
 }
 `;

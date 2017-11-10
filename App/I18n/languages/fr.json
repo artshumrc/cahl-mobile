@@ -18,5 +18,6 @@
   "error": "Erreur",
   "addComment": "Ajoutez votre commentaire",
   "noCommentsExhibit": "Personne n'a encore commenté cette exposition.",
-  "post": "Poster"
+  "post": "Poster",
+  "removeComment": "Supprimer le commentaire",
 }

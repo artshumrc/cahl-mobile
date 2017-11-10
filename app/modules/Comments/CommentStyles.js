@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
     width: 300,
     flexGrow: 1,
   },
+  removeButtonText: {
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+  },
 });
 
 export default styles;

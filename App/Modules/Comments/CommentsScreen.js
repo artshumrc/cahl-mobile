@@ -68,15 +68,16 @@ class CommentsScreen extends React.Component {
             data.comments && data.comments.length > 0 ?
               <View>
                 {
-                  data.comments.map(comment =>
+                  data.comments.map(comment => (
                     <Comment
                       key={comment._id}
                       content={comment.content}
                       displayName={comment.userDisplayName}
                       createdAt={comment.createdAt}
                       photoURL={comment.photoURL}
+                      userIsOwner={comment.userIsOwner}
                     />
-                  )
+                  ))
                 }
               </View>
               :
@@ -105,7 +106,7 @@ class CommentsScreen extends React.Component {
                 title={I18n.t('post')}
                 onPress={this.post}
               />
-            :
+              :
               <Button
                 title={I18n.t('signIn')}
                 onPress={this.login}
@@ -125,6 +126,7 @@ query getComments($itemId: ID!) {
     createdAt,
     userDisplayName,
     photoURL,
+    userIsOwner,
   }
 }
 `;
@@ -146,7 +148,7 @@ export default compose(
     options: ownProps => ({
       variables: {
         itemId: ownProps.navigation.state.params.recordId,
-      }
+      },
     }),
   }),
   graphql(addComment),

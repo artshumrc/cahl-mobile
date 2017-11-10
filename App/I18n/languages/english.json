@@ -18,5 +18,6 @@
   "error": "Error",
   "addComment": "Add your comment",
   "noCommentsExhibit": "No one has commented on this exhibit yet.",
-  "post": "Post"
+  "post": "Post",
+  "removeComment": "Remove comment"
 }

@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderBottomColor: Colors.subtitle,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5,
+    flexGrow: 1,
   },
   headerContainer: {
     flexDirection: 'row',

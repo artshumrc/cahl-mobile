@@ -71,7 +71,7 @@ class CommentsScreen extends React.Component {
                   data.comments.map(comment => (
                     <Comment
                       key={comment._id}
-                      id={comment._id}
+                      commentId={comment._id}
                       content={comment.content}
                       displayName={comment.userDisplayName}
                       createdAt={comment.createdAt}

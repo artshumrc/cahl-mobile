@@ -20,11 +20,13 @@ class Story extends React.Component {
     userPhotoURL: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     photoURL: PropTypes.string.isRequired,
+    commentId: PropTypes.string.isRequired,
   };
 
   navigateToComments() {
     const { navigate } = this.props.navigation;
-    navigate('CommentsScreen');
+    const { itemId } = this.props;
+    navigate('CommentsScreen', { itemId, itemType: 'story' });
   }
 
   render() {

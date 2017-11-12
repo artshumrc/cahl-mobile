@@ -33,7 +33,7 @@ class Comment extends React.Component {
     userIsOwner: PropTypes.bool.isRequired,
     mutate: PropTypes.func.isRequired,
     commentId: PropTypes.string.isRequired,
-    refecth: PropTypes.func.isRequired,
+    refetch: PropTypes.func.isRequired,
   }
 
   removeComment() {

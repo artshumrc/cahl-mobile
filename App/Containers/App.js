@@ -8,7 +8,8 @@ import firebase from 'firebase';
 import RootContainer from './RootContainer';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://api.cahl.orphe.us/graphql',
+  // uri: 'http://api.cahl.orphe.us/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 networkInterface.use([{
@@ -18,7 +19,7 @@ networkInterface.use([{
     }
     if (firebase.auth().currentUser) {
       firebase.auth().currentUser.getIdToken()
-        .then(idToken => req.options.headers.authorization = idToken)
+        .then((idToken) => { req.options.headers.authorization = idToken; })
         .catch(error => console.log(error));
     } else {
       req.options.headers.authorization = null;

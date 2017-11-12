@@ -67,42 +67,55 @@ class StoriesScreen extends React.Component {
   }
 
   render() {
+    const { navigation, data, data: { loading, error, stories } } = this.props;
     const { addStory } = this.state;
-    const { navigation, data} = this.props;
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.questionText}>{I18n.t('storiesMessage')}</Text>
-          <View style={styles.submitStory}>
-            <TextInput
-              value={addStory}
-              onChangeText={content => this.setState({ content })}
-              style={styles.textInput}
-              clearTextOnFocus={true}
-            />
-            <TouchableOpacity onPress={this.post}>
-              <Icon name="plus" style={styles.submitIcon} />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View>
-          {
-            data.stories && data.stories.map(story =>
-              <Story
-                navigation={navigation}
-                key={story._id}
-                content={story.content}
-                userID={story.userID}
-                userDisplayName={story.userDisplayName}
-                userPhotoURL={story.userPhotoURL}
-                createdAt={story.createdAt}
-                photoURL={story.photoURL}
+
+    if (error) {
+      console.log(error);
+      return (
+        <Text style={styles.title}>{`${I18n.t('error')} ${error.message}`}</Text>
+      )
+    } else if (loading) {
+      return (
+        <Text style={styles.title}>{I18n.t('loading')}</Text>
+      )
+    } else {
+      return (
+        <ScrollView style={styles.container}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.questionText}>{I18n.t('storiesMessage')}</Text>
+            <View style={styles.submitStory}>
+              <TextInput
+                value={addStory}
+                onChangeText={content => this.setState({ content })}
+                style={styles.textInput}
+                clearTextOnFocus={true}
               />
-            )
-          }
-        </View>
-      </ScrollView>
-    );
+              <TouchableOpacity onPress={this.post}>
+                <Icon name="plus" style={styles.submitIcon} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View>
+            {
+              stories && stories.map(story =>
+                <Story
+                  navigation={navigation}
+                  itemId={story._id}
+                  key={story._id}
+                  content={story.content}
+                  userID={story.userID}
+                  userDisplayName={story.userDisplayName}
+                  userPhotoURL={story.userPhotoURL}
+                  createdAt={story.createdAt}
+                  photoURL={story.photoURL}
+                />
+              )
+            }
+          </View>
+        </ScrollView>
+      );
+    }
   }
 }
 
@@ -113,7 +126,8 @@ query getStories {
     userDisplayName,
     userProfilePhotoURL,
     createdAt,
-    photoURL
+    photoURL,
+    _id
   }
 }
 `;

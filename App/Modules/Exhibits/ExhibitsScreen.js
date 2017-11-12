@@ -45,14 +45,14 @@ class ExhibitsScreen extends React.Component {
   render() {
     const { navigation, data: { loading, error, HULItems } } = this.props;
 
-    if (loading) {
-      return (
-        <Text style={styles.title}>{I18n.t('loading')}</Text>
-      )
-    } else if (error) {
+    if (error) {
       console.log(error);
       return (
-        <Text style={styles.title}>{I18n.t('error')}</Text>
+        <Text style={styles.title}>{`${I18n.t('error')} ${error.message}`}</Text>
+      )
+    } else if (loading) {
+      return (
+        <Text style={styles.title}>{I18n.t('loading')}</Text>
       )
     } else {
       const totalNumberOfItems = HULItems.pagination.numFound;
@@ -87,7 +87,7 @@ class ExhibitsScreen extends React.Component {
 
 const getExhibits = gql`
 query {
-  HULItems {
+  HULItems(start: 0, limit: 10) {
     pagination,
     items
   }

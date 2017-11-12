@@ -35,8 +35,8 @@ class CommentsScreen extends React.Component {
 
   login() {
     const { navigate } = this.props.navigation;
-    const { recordId } = this.props.navigation.state.params;
-    navigate('LoginScreen', { recordId });
+    const { itemId } = this.props.navigation.state.params;
+    navigate('LoginScreen', { itemId });
   }
 
   post() {
@@ -47,7 +47,7 @@ class CommentsScreen extends React.Component {
 
     mutate({
       variables: {
-        itemId: navigation.state.params.recordId,
+        itemId: navigation.state.params.itemId,
         userDisplayName: currentUser.displayName,
         content: content,
         photoURL: currentUser.photoURL,
@@ -150,7 +150,7 @@ export default compose(
   graphql(getComments, {
     options: ownProps => ({
       variables: {
-        itemId: ownProps.navigation.state.params.recordId,
+        itemId: ownProps.navigation.state.params.itemId,
       },
     }),
   }),

@@ -53,9 +53,9 @@ class LoginScreen extends React.Component {
 
   handleFacebookSubmit() {
     const { navigate } = this.props.navigation;
-    const { recordId } = this.props.navigation.state.params;
+    const { itemId } = this.props.navigation.state.params;
     this.facebookAuth();
-    navigate('CommentsScreen', { recordId });
+    navigate('CommentsScreen', { itemId });
   }
 
   handleGoogleSubmit() {

@@ -33,7 +33,7 @@ class Exhibit extends React.Component {
   navigateToComments() {
     const { recordId }= this.props;
     const { navigate } = this.props.navigation;
-    navigate('CommentsScreen', { recordId });
+    navigate('CommentsScreen', { itemId: recordId, itemType: 'exhibit' });
   }
 
   render() {

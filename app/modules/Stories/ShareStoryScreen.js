@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import firebase from 'firebase';
 import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ImagePicker from 'react-native-image-picker';
 
 // styles
 import styles from './ShareStoryScreenStyles';
@@ -33,7 +34,35 @@ class ShareStory extends React.Component {
   }
 
   post() {
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
 
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response: ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        let source = { uri: response.uri };
+
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({
+          photoURL: source,
+        });
+      }
+    });
   }
 
   render() {
@@ -50,7 +79,9 @@ class ShareStory extends React.Component {
           />
         </View>
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.post}
+          >
             <Text>Inlcude an image</Text>
             <Icon name="photo" style={styles.submitIcon} />
           </TouchableOpacity>

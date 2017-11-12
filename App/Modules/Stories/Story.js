@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import I18n from 'react-native-i18n';
 
 // styles
@@ -23,6 +23,7 @@ class Story extends React.Component {
     super(props);
 
     this.navigateToComments = this.navigateToComments.bind(this);
+    this.removeStory = this.removeStory.bind(this);
   }
 
   static propTypes = {
@@ -40,8 +41,21 @@ class Story extends React.Component {
     navigate('CommentsScreen', { itemId, itemType: 'story' });
   }
 
+  removeStory() {
+    const { mutate, itemId, refetch } = this.props;
+
+    mutate({
+      variables: {
+        storyId: itemId
+      },
+    }).then(({ data }) => console.log('removed story successfully', data))
+      .catch(error => console.log(error));
+
+    refetch();
+  }
+
   render() {
-    const { content, userID, userDisplayName, userPhotoURL, createdAt, photoURL, data: { loading, comments } } = this.props;
+    const { content, userID, userDisplayName, userPhotoURL, createdAt, photoURL, userIsOwner, data: { loading, comments } } = this.props;
     if (loading) {
       return (
         <View>
@@ -73,8 +87,15 @@ class Story extends React.Component {
                   :
                   I18n.t('addComment')
               }
-            </Text>
+              </Text>
             </TouchableOpacity>
+            {
+              userIsOwner
+              &&
+              <TouchableOpacity onPress={this.removeStory}>
+                <Text style={styles.removeButtonText}>{I18n.t('removeComment')}</Text>
+              </TouchableOpacity>
+            }
           </View>
         </View>
       );
@@ -90,10 +111,21 @@ query getComments($itemId: ID!) {
 }
 `;
 
-export default graphql(getComments, {
-  options: ownProps => ({
-    variables: {
-      itemId: ownProps.itemId
-    }
-  })
-})(Story);
+const removeComment = gql`
+mutation storyRemove($storyId: String!) {
+  storyRemove(storyId: $storyId) {
+    _id
+  }
+}
+`;
+
+export default compose(
+  graphql(getComments, {
+    options: ownProps => ({
+      variables: {
+        itemId: ownProps.itemId
+      }
+    }),
+  }),
+  graphql(removeComment),
+)(Story);

@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
     color: Colors.subtitle,
     fontSize: 14,
   },
+  removeButtonText: {
+    fontFamily: Fonts.type.base,
+    color: Colors.subtitle,
+  },
 });
 
 export default styles;

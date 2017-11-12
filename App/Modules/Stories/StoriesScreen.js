@@ -109,6 +109,7 @@ class StoriesScreen extends React.Component {
                   userPhotoURL={story.userPhotoURL}
                   createdAt={story.createdAt}
                   photoURL={story.photoURL}
+                  refetch={data.refetch}
                 />
               )
             }

@@ -7,6 +7,7 @@ import CustomTabs from './CustomTabs';
 // views
 import LoginScreen from '../modules/Login';
 import CommentsScreen from '../modules/Comments';
+import ShareStory from '../modules/Stories/ShareStoryScreen';
 
 // styles
 import styles from './NavigationStyles';
@@ -30,10 +31,16 @@ const PrimaryNav = StackNavigator({
   CommentsScreen: {
     screen: CommentsScreen,
     navigationOptions: {
-      title: I18n.t('comments')
-    }
+      title: I18n.t('comments'),
+    },
   },
   LoginScreen: { screen: LoginScreen },
+  ShareStory: {
+    screen: ShareStory,
+    navigationOptions: {
+      title: 'Share Your Story',
+    },
+  },
 }, {
   navigationOptions: {
     headerStyle: styles.header,

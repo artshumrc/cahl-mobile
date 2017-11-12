@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import gql from 'graphql-tag';
-import { graphql } from 'react-apollo'
+import { graphql } from 'react-apollo';
 import I18n from 'react-native-i18n';
 
 // styles

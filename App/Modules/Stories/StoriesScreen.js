@@ -104,7 +104,7 @@ class StoriesScreen extends React.Component {
                   itemId={story._id}
                   key={story._id}
                   content={story.content}
-                  userID={story.userID}
+                  userIsOwner={story.userIsOwner}
                   userDisplayName={story.userDisplayName}
                   userPhotoURL={story.userPhotoURL}
                   createdAt={story.createdAt}
@@ -127,7 +127,8 @@ query getStories {
     userProfilePhotoURL,
     createdAt,
     photoURL,
-    _id
+    _id,
+    userIsOwner
   }
 }
 `;

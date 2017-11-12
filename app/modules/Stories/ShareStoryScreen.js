@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ImagePicker from 'react-native-image-picker';
+import { RNS3 } from 'react-native-aws3';
 
 // styles
 import styles from './ShareStoryScreenStyles';
@@ -60,45 +61,40 @@ class ShareStory extends React.Component {
       } else {
         let source = { uri: response.uri };
 
-        // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        const AWSoptions = {
+          keyPrefix: "uploads/",
+          bucket: AWS_BUCKET,
+          region: AWS_REGION,
+          accessKey: AWS_ACCESS_KEY_ID,
+          secretKey: AWS_SECRET_ACCESS_KEY,
+          successActionStatus: 201,
+        };
 
-        this.setState({
-          photoURL: source,
-        });
+        const file = {
+          uri: source,
+          type: "image/png",
+          name: "image.png",
+        }
+
+        RNS3.put(file, AWSoptions).then(response => {
+          if (response.status !== 201)
+            throw new Error("Failed to upload image to S3");
+          console.log(response.body);
+          /**
+           * {
+           *   postResponse: {
+           *     bucket: "your-bucket",
+           *     etag : "9f620878e06d28774406017480a59fd4",
+           *     key: "uploads/image.png",
+           *     location: "https://your-bucket.s3.amazonaws.com/uploads%2Fimage.png"
+           *   }
+           * }
+           */
+        }).catch(error => console.log(error));
       }
     });
 
-    const AWSoptions = {
-      keyPrefix: "uploads/",
-      bucket: AWS_BUCKET,
-      region: AWS_REGION,
-      accessKey: AWS_ACCESS_KEY_ID,
-      secretKey: AWS_SECRET_ACCESS_KEY,
-      successActionStatus: 201,
-    };
 
-    const file = {
-      uri: this.state.photoURL,
-      type: "image/png",
-      name: "image.png",
-    }
-
-    RNS3.put(file, AWSoptions).then(response => {
-      if (response.status !== 201)
-        throw new Error("Failed to upload image to S3");
-      console.log(response.body);
-      /**
-       * {
-       *   postResponse: {
-       *     bucket: "your-bucket",
-       *     etag : "9f620878e06d28774406017480a59fd4",
-       *     key: "uploads/image.png",
-       *     location: "https://your-bucket.s3.amazonaws.com/uploads%2Fimage.png"
-       *   }
-       * }
-       */
-    });
 
 
   }

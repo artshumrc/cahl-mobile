@@ -8,7 +8,8 @@ import firebase from 'firebase';
 import RootContainer from './RootContainer';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://api.cahl.orphe.us/graphql',
+  // uri: 'http://api.cahl.orphe.us/graphql',
+  uri: 'http://localhost:3001/graphql'
 });
 
 networkInterface.use([{

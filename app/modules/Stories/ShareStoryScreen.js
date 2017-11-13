@@ -37,10 +37,14 @@ class ShareStory extends React.Component {
     };
 
     this.post = this.post.bind(this);
+    this.uploadPhoto = this.uploadPhoto.bind(this);
   }
 
-  post() {
-    const options = {
+  uploadPhoto() {
+    const { currentUser } = this.state;
+
+    // Options for image picker
+    const imagePickerOptions = {
       quality: 1.0,
       maxWidth: 500,
       maxHeight: 500,
@@ -49,20 +53,21 @@ class ShareStory extends React.Component {
       },
     };
 
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response: ', response);
-
-      if (response.didCancel) {
+    // Image picker functions. Returns uri for image taken or selected from library
+    ImagePicker.showImagePicker(imagePickerOptions, (imagePickerResponse) => {
+      console.log('Image Picker Response: ', imagePickerResponse);
+      if (imagePickerResponse.didCancel) {
         console.log('User cancelled photo picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
+      } else if (imagePickerResponse.error) {
+        console.log('ImagePicker Error: ', imagePickerResponse.error);
+      } else if (imagePickerResponse.customButton) {
+        console.log('User tapped custom button: ', imagePickerResponse.customButton);
       } else {
-        let source = { uri: response.uri };
+        const source = { uri: imagePickerResponse.uri };
 
-        const AWSoptions = {
-          keyPrefix: "uploads/",
+        // AWS Options for S3 upload
+        const awsOptions = {
+          keyPrefix: 'uploads/',
           bucket: AWS_BUCKET,
           region: AWS_REGION,
           accessKey: AWS_ACCESS_KEY_ID,
@@ -70,37 +75,44 @@ class ShareStory extends React.Component {
           successActionStatus: 201,
         };
 
+        // File to upload
         const file = {
           uri: source,
-          type: "image/png",
-          name: "image.png",
-        }
+          type: 'image/png',
+          name: `${currentUser.uid}${new Date()}.png`,
+        };
 
-        RNS3.put(file, AWSoptions).then(response => {
-          if (response.status !== 201)
-            throw new Error("Failed to upload image to S3");
-          console.log(response.body);
-          /**
-           * {
-           *   postResponse: {
-           *     bucket: "your-bucket",
-           *     etag : "9f620878e06d28774406017480a59fd4",
-           *     key: "uploads/image.png",
-           *     location: "https://your-bucket.s3.amazonaws.com/uploads%2Fimage.png"
-           *   }
-           * }
-           */
-        }).catch(error => console.log(error));
+        // Upload to S3
+        RNS3.put(file, awsOptions).then((s3Response) => {
+          if (s3Response.status !== 201) {
+            throw new Error('Failed to upload image to S3');
+          }
+          console.log('S3 Response: ', s3Response);
+          this.setState({ photoURL: s3Response.body.postResponse.location });
+        }).catch(error => console.log('S3 Upload Error: ', error));
       }
     });
+  }
 
+  post() {
+    const { mutate, navigation: { navigate } } = this.props;
+    const { currentUser, content, photoURL } = this.state;
 
+    alert(I18n.t('publicStories'));
 
-
+    mutate({
+      variables: {
+        content,
+        userDisplayName: currentUser.displayName,
+        userProfilePhotoURL: currentUser.photoURL,
+        photoURL,
+      },
+    }).then(({ data }) => console.log('Successfully submitted story', data))
+      .catch(error => console.log('Error submitting story: ', error));
+    navigate('Stories');
   }
 
   render() {
-    const { content } = this.state;
     return (
       <View>
         <View>
@@ -113,8 +125,11 @@ class ShareStory extends React.Component {
           />
         </View>
         <View>
+          <TouchableOpacity onPress={this.post}>
+            <Text>Submit Story</Text>
+          </TouchableOpacity>
           <TouchableOpacity
-            onPress={this.post}
+            onPress={this.uploadPhoto}
           >
             <Text>Inlcude an image</Text>
             <Icon name="photo" style={styles.submitIcon} />
@@ -125,4 +140,16 @@ class ShareStory extends React.Component {
   }
 }
 
-export default ShareStory;
+const submitStory = gql`
+mutation submitStory($content: String!, $userDisplayName: String!, $userProfilePhotoURL: String!, $photoURL: String!) {
+  storyCreate(content: $content, userDisplayName: $userDisplayName, userProfilePhotoURL: $userProfilePhotoURL, photoURL: $photoURL) {
+    content,
+    userDisplayName,
+    userProfilePhotoURL,
+    photoURL,
+    createdAt
+  }
+}
+`;
+
+export default graphql(submitStory)(ShareStory);

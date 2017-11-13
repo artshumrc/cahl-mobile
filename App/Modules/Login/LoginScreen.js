@@ -21,7 +21,7 @@ I18n.translations = {
 };
 
 const config = {
-  apiKey: Config.FB_API_KEY,
+  apiKey: Config.FIREBASE_API_KEY,
   authDomain: Config.AUTH_DOMAIN,
   databaseUrl: Config.FIREBASE_DATABASE_URL,
 };
@@ -32,9 +32,7 @@ class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleTwitterSubmit = this.handleTwitterSubmit.bind(this);
     this.handleFacebookSubmit = this.handleFacebookSubmit.bind(this);
-    this.handleGoogleSubmit = this.handleGoogleSubmit.bind(this);
   }
 
   facebookAuth() {
@@ -53,21 +51,11 @@ class LoginScreen extends React.Component {
     error => alert('Login fail with error: ' + error));
   }
 
-  handleTwitterSubmit() {
-    const { navigate } = this.props.navigation;
-    navigate('CommentsScreen');
-  }
-
   handleFacebookSubmit() {
     const { navigate } = this.props.navigation;
     const { itemId } = this.props.navigation.state.params;
     this.facebookAuth();
     navigate('CommentsScreen', { itemId });
-  }
-
-  handleGoogleSubmit() {
-    const { navigate } = this.props.navigation;
-    navigate('CommentsScreen');
   }
 
   render() {
@@ -79,26 +67,10 @@ class LoginScreen extends React.Component {
         </View>
         <View style={styles.buttonBox}>
           <RoundedButton
-            onPress={() => this.handleTwitterSubmit}
-            text="Sign in with Twitter"
-            icon="twitter"
-            buttonStyle={styles.twitterButton}
-            buttonTextStyle={styles.buttonText}
-            buttonIconStyle={styles.buttonIcon}
-          />
-          <RoundedButton
             onPress={this.handleFacebookSubmit}
             text={I18n.t('signInFB')}
             icon="facebook"
             buttonStyle={styles.facebookButton}
-            buttonTextStyle={styles.buttonText}
-            buttonIconStyle={styles.buttonIcon}
-          />
-          <RoundedButton
-            onPress={() => this.handleGoogleSubmit}
-            text="Sign in with Google"
-            icon="google"
-            buttonStyle={styles.googleButton}
             buttonTextStyle={styles.buttonText}
             buttonIconStyle={styles.buttonIcon}
           />

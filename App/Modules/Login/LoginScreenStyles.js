@@ -55,14 +55,6 @@ const styles = StyleSheet.create({
     ...RoundedButtonStyles.button,
     backgroundColor: Colors.facebook,
   },
-  googleButton: {
-    ...RoundedButtonStyles.button,
-    backgroundColor: Colors.google,
-  },
-  twitterButton: {
-    ...RoundedButtonStyles.button,
-    backgroundColor: Colors.twitter,
-  },
   buttonText: {
     ...RoundedButtonStyles.buttonText,
   },

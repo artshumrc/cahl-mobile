@@ -3,12 +3,22 @@ import { View, ScrollView, Text } from 'react-native';
 import FBSDK, { LoginManager, AccessToken } from 'react-native-fbsdk';
 import firebase from 'firebase';
 import Config from 'react-native-config';
+import I18n from 'react-native-i18n'
 
 // components
 import RoundedButton from '../../components/RoundedButton';
 
 // styles
 import styles from './LoginScreenStyles';
+
+// translations
+import en from '../../i18n/languages/english';
+import fr from '../../i18n/languages/fr.json';
+
+I18n.translations = {
+  en,
+  fr,
+};
 
 const config = {
   apiKey: Config.FB_API_KEY,
@@ -26,10 +36,6 @@ class LoginScreen extends React.Component {
     this.handleFacebookSubmit = this.handleFacebookSubmit.bind(this);
     this.handleGoogleSubmit = this.handleGoogleSubmit.bind(this);
   }
-
-  static navigationOptions = {
-    title: 'Sign In'
-  };
 
   facebookAuth() {
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(result => {
@@ -68,8 +74,8 @@ class LoginScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.textBox}>
-          <Text style={styles.title}>Charlie Archive</Text>
-          <Text style={styles.subtitle}>at the Harvard Library</Text>
+          <Text style={styles.title}>{I18n.t('charlieArchive')}</Text>
+          <Text style={styles.subtitle}>{I18n.t('atHUL')}</Text>
         </View>
         <View style={styles.buttonBox}>
           <RoundedButton
@@ -82,7 +88,7 @@ class LoginScreen extends React.Component {
           />
           <RoundedButton
             onPress={this.handleFacebookSubmit}
-            text="Sign in with Facebook"
+            text={I18n.t('signInFB')}
             icon="facebook"
             buttonStyle={styles.facebookButton}
             buttonTextStyle={styles.buttonText}

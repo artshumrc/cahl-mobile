@@ -113,7 +113,7 @@ class ShareStory extends React.Component {
       <View>
         <View>
           <TextInput
-            placeholder="Share your story."
+            placeholder={I18n.t('shareStory')}
             onChangeText={content => this.setState({ content })}
             autoFocus
             multiline
@@ -122,12 +122,12 @@ class ShareStory extends React.Component {
         </View>
         <View>
           <TouchableOpacity onPress={this.post}>
-            <Text>Submit Story</Text>
+            <Text>{I18n.t('submitStory')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.uploadPhoto}
           >
-            <Text>Inlcude an image</Text>
+            <Text>{I18n.t('includeImage')}</Text>
             <Icon name="photo" style={styles.submitIcon} />
           </TouchableOpacity>
         </View>

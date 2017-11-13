@@ -19,5 +19,9 @@
   "addComment": "Add your comment",
   "noCommentsExhibit": "No one has commented on this exhibit yet.",
   "post": "Post",
-  "removeComment": "Remove comment"
+  "removeComment": "Remove comment",
+  "shareStory": "Share your story",
+  "includeImage": "Include an image",
+  "submitStory": "Submit Story",
+  "signInFB": "Sign in with FaceBook"
 }

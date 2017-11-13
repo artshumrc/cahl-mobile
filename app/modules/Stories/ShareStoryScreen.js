@@ -8,6 +8,7 @@ import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ImagePicker from 'react-native-image-picker';
 import { RNS3 } from 'react-native-aws3';
+import Config from 'react-native-config';
 
 // styles
 import styles from './ShareStoryScreenStyles';
@@ -20,11 +21,6 @@ I18n.translations = {
   en,
   fr,
 };
-
-const AWS_ACCESS_KEY_ID='AKIAJLHEKA2FQXGV6YVA';
-const AWS_SECRET_ACCESS_KEY='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';
-const AWS_BUCKET='iiif-orpheus';
-const AWS_REGION='us-east-1';
 
 class ShareStory extends React.Component {
   constructor(props) {
@@ -68,10 +64,10 @@ class ShareStory extends React.Component {
         // AWS Options for S3 upload
         const awsOptions = {
           keyPrefix: 'uploads/',
-          bucket: AWS_BUCKET,
-          region: AWS_REGION,
-          accessKey: AWS_ACCESS_KEY_ID,
-          secretKey: AWS_SECRET_ACCESS_KEY,
+          bucket: Config.AWS_BUCKET,
+          region: Config.AWS_REGION,
+          accessKey: Config.AWS_ACCESS_KEY_ID,
+          secretKey: Config.AWS_SECRET_ACCESS_KEY,
           successActionStatus: 201,
         };
 

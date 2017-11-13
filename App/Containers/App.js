@@ -4,12 +4,13 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import firebase from 'firebase';
+import Config from 'react-native-config';
 
 import RootContainer from './RootContainer';
 
 const networkInterface = createNetworkInterface({
-  // uri: 'http://api.cahl.orphe.us/graphql',
-  uri: 'http://localhost:3001/graphql'
+  // uri: Config.PROD_API_URL,
+  uri: Config.DEV_API_URL,
 });
 
 networkInterface.use([{

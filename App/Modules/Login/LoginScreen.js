@@ -2,6 +2,7 @@ import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import FBSDK, { LoginManager, AccessToken } from 'react-native-fbsdk';
 import firebase from 'firebase';
+import Config from 'react-native-config';
 
 // components
 import RoundedButton from '../../components/RoundedButton';
@@ -10,9 +11,9 @@ import RoundedButton from '../../components/RoundedButton';
 import styles from './LoginScreenStyles';
 
 const config = {
-  apiKey: 'AIzaSyA9T3ymeQYY7ri8Ut-sAds9KsD3bQ_kYmE',
-  authDomain: 'cahl-mobile.firebaseapp.com/',
-  databaseUrl: 'https://cahl-mobile.firebaseio.com/'
+  apiKey: Config.FB_API_KEY,
+  authDomain: Config.AUTH_DOMAIN,
+  databaseUrl: Config.FIREBASE_DATABASE_URL,
 };
 
 const firebaseRef = firebase.initializeApp(config);

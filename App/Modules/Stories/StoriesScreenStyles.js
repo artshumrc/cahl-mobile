@@ -4,6 +4,7 @@ import { Fonts, Colors } from '../../themes';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
+    marginBottom: 75,
   },
   headerContainer: {
     paddingBottom: 75,
@@ -21,11 +22,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 15,
     marginRight: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     borderColor: Colors.subtitle,
     borderBottomWidth: 1,
     borderTopWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  shareText: {
+    fontSize: 15,
+    color: Colors.subtitle,
   },
   textInput: {
     width: 333,

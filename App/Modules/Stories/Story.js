@@ -42,16 +42,13 @@ class Story extends React.Component {
   }
 
   removeStory() {
-    const { mutate, itemId, refetch } = this.props;
+    const { mutate, itemId, refetch, data } = this.props;
 
     mutate({
       variables: {
         storyId: itemId
       },
-    }).then(({ data }) => console.log('removed story successfully', data))
-      .catch(error => console.log(error));
-
-    refetch();
+    }).catch(error => console.log(error));
   }
 
   render() {
@@ -59,7 +56,7 @@ class Story extends React.Component {
     if (loading) {
       return (
         <View>
-          <Text>Loading...</Text>
+          <Text>{I18n.t('loading')}</Text>
         </View>
       )
     } else {
@@ -92,8 +89,11 @@ class Story extends React.Component {
             {
               userIsOwner
               &&
-              <TouchableOpacity onPress={this.removeStory}>
-                <Text style={styles.removeButtonText}>{I18n.t('removeComment')}</Text>
+              <TouchableOpacity
+                onPress={this.removeStory}
+                style={styles.removeButton}
+              >
+                <Text style={styles.removeButtonText}>{I18n.t('removeStory')}</Text>
               </TouchableOpacity>
             }
           </View>

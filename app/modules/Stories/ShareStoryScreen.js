@@ -91,7 +91,7 @@ class ShareStory extends React.Component {
   }
 
   post() {
-    const { mutate, navigation: { navigate } } = this.props;
+    const { data, mutate, navigation: { navigate } } = this.props;
     const { currentUser, content, photoURL } = this.state;
 
     alert(I18n.t('publicStories'));
@@ -103,8 +103,7 @@ class ShareStory extends React.Component {
         userProfilePhotoURL: currentUser.photoURL,
         photoURL,
       },
-    }).then(({ data }) => console.log('Successfully submitted story', data))
-      .catch(error => console.log('Error submitting story: ', error));
+    }).catch(error => console.log('Error submitting story: ', error));
     navigate('Stories');
   }
 

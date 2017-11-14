@@ -26,6 +26,10 @@ class StoriesScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      stories: this.props.data.stories,
+    }
+
     this.shareStory = this.shareStory.bind(this);
   }
 
@@ -34,6 +38,14 @@ class StoriesScreen extends React.Component {
       navigate: PropTypes.func,
     }).isRequired,
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.data.stories !== nextProps.data.stories) {
+      this.setState({
+        stories: nextProps.data.stories,
+      })
+    }
+  }
 
   shareStory() {
     this.props.navigation.navigate('ShareStory')

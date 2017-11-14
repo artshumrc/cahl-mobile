@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.subtitle,
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
-    flexGrow: 1,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -32,8 +31,8 @@ const styles = StyleSheet.create({
     color: Colors.subtitle,
   },
   storyImage: {
-    width: Dimensions.get('window').width,
-    height: 200,
+    width: 500,
+    height: 500,
   },
   storyText: {
     fontSize: 14,
@@ -49,6 +48,9 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.type.base,
     color: Colors.subtitle,
     fontSize: 14,
+  },
+  removeButton: {
+    marginLeft: 15,
   },
   removeButtonText: {
     fontFamily: Fonts.type.base,

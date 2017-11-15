@@ -109,8 +109,8 @@ class ShareStory extends React.Component {
 
   render() {
     return (
-      <View>
-        <View>
+      <View style={styles.container}>
+        <View style={styles.inputContainer}>
           <TextInput
             placeholder={I18n.t('shareStory')}
             onChangeText={content => this.setState({ content })}
@@ -119,14 +119,18 @@ class ShareStory extends React.Component {
             keyboardType="default"
           />
         </View>
-        <View>
-          <TouchableOpacity onPress={this.post}>
-            <Text>{I18n.t('submitStory')}</Text>
+        <View style={styles.buttonBox}>
+          <TouchableOpacity
+            onPress={this.post}
+            style={styles.submitButton}
+          >
+            <Text style={styles.submitButtonText}>{I18n.t('submitStory')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.uploadPhoto}
+            style={styles.uploadPhotoButton}
           >
-            <Text>{I18n.t('includeImage')}</Text>
+            <Text style={styles.uploadPhotoButtonText}>{I18n.t('includeImage')}</Text>
             <Icon name="photo" style={styles.submitIcon} />
           </TouchableOpacity>
         </View>

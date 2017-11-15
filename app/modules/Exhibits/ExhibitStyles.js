@@ -2,6 +2,10 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { Colors, Fonts } from '../../themes';
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
   image: {
     width: 500,
     height: 500,

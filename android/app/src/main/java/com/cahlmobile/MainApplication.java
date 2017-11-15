@@ -11,7 +11,7 @@ import com.imagepicker.ImagePickerPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.i18n.reactnativei18n.ReactNativeI18n;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -43,7 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
             new FBSDKPackage(mCallbackManager),
             new RNDeviceInfo(),
             new ReactNativeConfigPackage(),
-            new ReactNativeI18n(),
+            new RNI18nPackage(),
             new VectorIconsPackage()
       );
     }

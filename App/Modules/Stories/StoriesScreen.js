@@ -69,7 +69,7 @@ class StoriesScreen extends React.Component {
           <View style={styles.headerContainer}>
             <Text style={styles.questionText}>{I18n.t('storiesMessage')}</Text>
             <View style={styles.submitStory}>
-              <Text>{I18n.t('shareStory')}</Text>
+              <Text style={styles.shareText}>{I18n.t('shareStory')}</Text>
               <TouchableOpacity onPress={this.shareStory}>
                 <Icon name="plus" style={styles.submitIcon} />
               </TouchableOpacity>

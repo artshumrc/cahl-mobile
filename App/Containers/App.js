@@ -9,8 +9,7 @@ import Config from 'react-native-config';
 import RootContainer from './RootContainer';
 
 const networkInterface = createNetworkInterface({
-  // uri: Config.PROD_API_URL,
-  uri: Config.DEV_API_URL,
+  uri: Config.PROD_API_URL,
 });
 
 networkInterface.use([{
